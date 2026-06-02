@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background-color: #070b14;
+  color: #e8eefb;
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(34, 158, 217, 0.4);
+  color: #fff;
+}
+
+/* Maxsus scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b87bb;
+  border-radius: 6px;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-tg-300 via-tg-400 to-tg-200 bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-tg-500 to-tg-400 px-7 py-4 text-base font-semibold text-white shadow-glow transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_70px_-10px_rgba(34,158,217,0.8)] active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/[0.08] active:scale-95;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-tg-100;
+  }
+}
+
+/* Aurora fon effekti */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.5;
+}
+.aurora::before {
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(34, 158, 217, 0.5), transparent 60%);
+}
+.aurora::after {
+  bottom: -25%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(70, 173, 245, 0.35), transparent 60%);
+}
