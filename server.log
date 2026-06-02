@@ -1,0 +1,8 @@
+
+> premiumtg@1.0.0 start
+> next start -p 3210
+
+▲ Next.js 16.2.7
+- Local:         http://localhost:3210
+- Network:       http://172.20.10.2:3210
+✓ Ready in 169ms

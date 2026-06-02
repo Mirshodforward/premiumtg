@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Bu papkani workspace ildizi sifatida belgilash (lockfile ogohlantirishini bartaraf etadi)
+  turbopack: { root: __dirname },
   async headers() {
     return [
       {
