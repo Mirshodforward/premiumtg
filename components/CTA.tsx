@@ -1,7 +1,12 @@
+"use client";
+
 import { SITE } from "@/lib/site";
 import { BoltIcon, TelegramIcon } from "./icons";
+import { useLang } from "./LanguageContext";
 
 export default function CTA() {
+  const { tr } = useLang();
+
   return (
     <section className="relative py-12 lg:py-20">
       <div className="container-x">
@@ -9,26 +14,25 @@ export default function CTA() {
           <div className="absolute inset-0 -z-10 bg-grid-tg bg-[size:36px_36px] opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
 
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            Telegram Premiumni hozir ulang
+            {tr.cta.title}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-tg-100/80">
-            Eng arzon narx, 10 soniyada avtomatik yetkazish va 24/7 yordam.
-            Username yuboring — qolganini biz hal qilamiz.
+            {tr.cta.desc}
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#narxlar" className="btn-primary w-full sm:w-auto">
-              <BoltIcon className="h-5 w-5" />
-              Paketni tanlash
-            </a>
             <a
-              href={SITE.supportUrl}
+              href={SITE.botUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost w-full sm:w-auto"
+              className="btn-primary w-full sm:w-auto"
             >
               <TelegramIcon className="h-5 w-5" />
-              @{SITE.supportUsername}
+              {tr.cta.btnBot}
+            </a>
+            <a href="#narxlar" className="btn-ghost w-full sm:w-auto">
+              <BoltIcon className="h-5 w-5" />
+              {tr.cta.btnPricing}
             </a>
           </div>
         </div>

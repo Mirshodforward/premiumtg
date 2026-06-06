@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE, PREMIUM_PLANS } from "@/lib/site";
+import { LanguageProvider } from "@/components/LanguageContext";
 
 const TITLE_DEFAULT = "Premiumtg — Telegram Premium arzon narxda, 10 soniyada avtomatik";
 
@@ -217,7 +218,9 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+          <LanguageProvider>{children}</LanguageProvider>
+        </body>
     </html>
   );
 }

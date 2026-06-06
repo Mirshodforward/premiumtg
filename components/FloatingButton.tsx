@@ -1,7 +1,12 @@
+"use client";
+
 import { SITE } from "@/lib/site";
 import { TelegramIcon } from "./icons";
+import { useLang } from "./LanguageContext";
 
 export default function FloatingButton() {
+  const { tr } = useLang();
+
   return (
     <a
       href={SITE.botUrl}
@@ -14,7 +19,7 @@ export default function FloatingButton() {
         <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-white/50" />
         <TelegramIcon className="h-5 w-5 text-white" />
       </span>
-      <span className="text-sm font-semibold text-white">Yozish</span>
+      <span className="text-sm font-semibold text-white">{tr.floating}</span>
     </a>
   );
 }

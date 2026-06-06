@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import Payments from "@/components/Payments";
 import Referral from "@/components/Referral";
 import FAQ from "@/components/FAQ";
+import BlogSection from "@/components/BlogSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <Payments />
         <Referral />
         <FAQ />
+        <BlogSection />
         <CTA />
 
         {/* AEO / qidiruv tizimlari uchun qisqa matnli xulosa (ekranda yashirin) */}
@@ -34,11 +36,9 @@ export default function HomePage() {
             sotib olish platformasi. To’lovdan so’ng obuna 10 soniyada avtomatik
             faollashadi, akkauntga kirish shart emas — faqat username yetarli.
             Narxlar: 3 oy 172 000 so’m, 6 oy 232 000 so’m, 12 oy 422 000 so’m.
-            Akkauntga kirib berish xizmati: 1 oy 50 000 so’m, 1 yil 300 000
-            so’m. To’lov: Click, Payme, Paynet, Uzcard, Humo va istalgan bank
-            kartasi. Do’stlarni taklif qilib bonus olish mumkin. Telegram bot:
-            @premiumtg_uzbot. Kanal: @StarsPaymee. Qo’llab-quvvatlash:
-            @StarsPaymeeSupport.
+            To’lov: Click, Payme, Paynet, Uzcard, Humo va istalgan bank kartasi.
+            Do’stlarni taklif qilib bonus olish mumkin. Telegram bot: @premiumtg_uzbot.
+            Kanal: @StarsPaymee.
           </p>
         </section>
       </main>
