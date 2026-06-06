@@ -57,7 +57,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={SITE.supportUrl}
+            href={SITE.botUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden rounded-xl bg-gradient-to-r from-tg-500 to-tg-400 px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105 sm:inline-flex"
@@ -98,7 +98,7 @@ export default function Header() {
               </li>
             ))}
             <a
-              href={SITE.supportUrl}
+              href={SITE.botUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary mt-2"

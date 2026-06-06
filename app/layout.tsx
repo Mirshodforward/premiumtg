@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE, PREMIUM_PLANS } from "@/lib/site";
 
+const TITLE_DEFAULT = "Premiumtg — Telegram Premium arzon narxda, 10 soniyada avtomatik";
+
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   variable: "--font-sans",
@@ -12,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
   title: {
-    default: "Premiumtg — Telegram Premium arzon narxda, 10 soniyada avtomatik",
+    default: TITLE_DEFAULT,
     template: "%s | Premiumtg",
   },
   description: SITE.description,
@@ -28,6 +30,18 @@ export const metadata: Metadata = {
     "premiumtg",
     "telegram premium uz",
     "telegram premium humo uzcard",
+    "telegram premium bot",
+    "premiumtg bot",
+    "telegram premium avtomatik",
+    "telegram premium online",
+    "telegram premium toshkent",
+    "telegram premium o'zbekiston",
+    "telegram stickers premium",
+    "telegram premium reklama",
+    "telegram premium 3 oy",
+    "telegram premium 6 oy",
+    "telegram premium 1 yil",
+    "buy telegram premium uzbekistan",
   ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
@@ -47,6 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: `@${SITE.channelUsername}`,
     title: "Premiumtg — Telegram Premium 10 soniyada avtomatik",
     description: SITE.description,
   },
@@ -87,13 +102,21 @@ function StructuredData() {
         name: SITE.name,
         url: SITE.domain,
         description: SITE.description,
-        contactPoint: {
-          "@type": "ContactPoint",
-          contactType: "customer support",
-          url: SITE.supportUrl,
-          availableLanguage: ["uz", "ru"],
-        },
-        sameAs: [SITE.supportUrl],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            url: SITE.supportUrl,
+            availableLanguage: ["uz", "ru"],
+          },
+          {
+            "@type": "ContactPoint",
+            contactType: "sales",
+            url: SITE.botUrl,
+            availableLanguage: ["uz", "ru"],
+          },
+        ],
+        sameAs: [SITE.supportUrl, SITE.channelUrl, SITE.botUrl],
       },
       {
         "@type": "WebSite",
@@ -122,7 +145,8 @@ function StructuredData() {
           price: p.price,
           priceCurrency: "UZS",
           availability: "https://schema.org/InStock",
-          url: SITE.domain + "/#narxlar",
+          url: SITE.botUrl,
+          seller: { "@type": "Organization", name: SITE.name },
         })),
         lowPrice: cheapest,
         highPrice: priciest,

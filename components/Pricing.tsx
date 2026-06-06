@@ -9,9 +9,7 @@ const PREMIUM_PERKS = [
 ];
 
 function PlanCard({ plan }: { plan: Plan }) {
-  const buyUrl = `${SITE.supportUrl}?text=${encodeURIComponent(
-    `Salom! Telegram Premium ${plan.duration} (${formatSom(plan.price)}) sotib olmoqchiman.`
-  )}`;
+  const buyUrl = SITE.botUrl;
 
   return (
     <div
@@ -75,9 +73,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 function LoginCard({ plan }: { plan: Plan }) {
-  const buyUrl = `${SITE.supportUrl}?text=${encodeURIComponent(
-    `Salom! Akkauntga kirib berish — ${plan.duration} (${formatSom(plan.price)}) xizmatini buyurtma qilmoqchiman.`
-  )}`;
+  const buyUrl = SITE.botUrl;
   return (
     <div className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors hover:border-tg-400/40">
       <div>

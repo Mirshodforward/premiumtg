@@ -8,7 +8,11 @@ export const SITE = {
     "Premiumtg orqali Telegram Premium obunasini eng arzon narxda sotib oling. To'lovdan so'ng 10 soniyada avtomatik faollashadi. Click, Payme, Paynet, Uzcard, Humo va istalgan bank kartasi qabul qilinadi.",
   supportUsername: "StarsPaymeeSupport",
   supportUrl: "https://t.me/StarsPaymeeSupport",
-  botUrl: "https://t.me/StarsPaymeeSupport",
+  botUsername: "premiumtg_uzbot",
+  botUrl: "https://t.me/premiumtg_uzbot",
+  channelUsername: "StarsPaymee",
+  channelUrl: "https://t.me/StarsPaymee",
+  ofertaUrl: "https://premiumtg.uz/oferta",
   ogImage: "/og.png",
 } as const;
 
