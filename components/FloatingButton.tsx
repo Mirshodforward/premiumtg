@@ -1,7 +1,7 @@
 "use client";
 
 import { SITE } from "@/lib/site";
-import { TelegramIcon } from "./icons";
+import { ArrowUpRightIcon, TelegramIcon } from "./icons";
 import { useLang } from "./LanguageContext";
 
 export default function FloatingButton() {
@@ -13,13 +13,11 @@ export default function FloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Telegram bot orqali sotib olish"
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-tg-500 to-tg-400 py-3 pl-3 pr-4 shadow-glow transition-all hover:scale-105 active:scale-95"
+      className="fixed bottom-5 right-5 z-40 inline-flex h-12 items-center gap-2 border-2 border-foreground bg-primary px-4 font-clash text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-hard transition-colors duration-150 hover:bg-foreground hover:text-background"
     >
-      <span className="relative grid h-9 w-9 place-items-center rounded-full bg-white/15">
-        <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-white/50" />
-        <TelegramIcon className="h-5 w-5 text-white" />
-      </span>
-      <span className="text-sm font-semibold text-white">{tr.floating}</span>
+      <TelegramIcon className="h-4 w-4 shrink-0" />
+      <span className="hidden sm:inline">{tr.floating}</span>
+      <ArrowUpRightIcon className="h-3.5 w-3.5 animate-arrow-nudge" />
     </a>
   );
 }

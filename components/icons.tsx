@@ -84,6 +84,60 @@ export const HeadsetIcon = (p: P) => (
   </svg>
 );
 
+export const ArrowUpRightIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M7 17 17 7M7 7h10v10" />
+  </svg>
+);
+
+export const PlusIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+);
+
+export const SunIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+  </svg>
+);
+
+export const MoonIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+  </svg>
+);
+
+export const SearchIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5" />
+  </svg>
+);
+
+export const BookIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5Z" />
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+  </svg>
+);
+
+/**
+ * Logotip — rasm fayli yo'q, CSS bilan yasalgan (darslink-dizayn.md, 7.8):
+ * uchta 45° burilgan kvadrat, opacity 0.2 / 0.5 / 1, gorizontal siljitilgan.
+ */
+export const LogoMark = ({ className = "" }: { className?: string }) => (
+  <span
+    className={`relative inline-block h-5 w-[22px] shrink-0 ${className}`}
+    aria-hidden="true"
+  >
+    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-20" style={{ left: 0 }} />
+    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-50" style={{ left: "4.2px" }} />
+    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current" style={{ left: "8.4px" }} />
+  </span>
+);
+
 export const RocketIcon = (p: P) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
     <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" />

@@ -1,66 +1,104 @@
-import { SITE } from "@/lib/site";
-import { GiftIcon, StarIcon, CheckIcon } from "./icons";
+"use client";
 
-const PERKS = [
-  "Har bir do‘st sotib olganda — bonus",
-  "Bonuslarni keyingi xaridda chegirma sifatida ishlating",
-  "Cheklov yo‘q — qancha ko‘p taklif, shuncha ko‘p bonus",
-];
+import { SITE } from "@/lib/site";
+import { ArrowUpRightIcon, CheckIcon } from "./icons";
+import { useLang } from "./LanguageContext";
+
+const COPY: Record<
+  string,
+  { eyebrow: string; title: string; desc: string; perks: string[]; btn: string; big: string; bigLabel: string }
+> = {
+  uz: {
+    eyebrow: "Bonus",
+    title: "Taklif qiling — bonus oling",
+    desc: "Shaxsiy taklif havolangizni do'stlaringiz, guruhingiz yoki kanalingizda ulashing. Havola orqali kelgan har bir xarid uchun bonus yoziladi.",
+    perks: [
+      "Har bir do'st sotib olganda — bonus",
+      "Bonusni keyingi xaridda chegirma sifatida ishlatasiz",
+      "Cheklov yo'q — qancha taklif, shuncha bonus",
+    ],
+    btn: "Taklif havolasini olish",
+    big: "∞",
+    bigLabel: "Taklif soni cheklanmagan",
+  },
+  ru: {
+    eyebrow: "Бонус",
+    title: "Приглашайте — получайте бонус",
+    desc: "Делитесь личной реферальной ссылкой с друзьями, в группе или на канале. За каждую покупку по ссылке начисляется бонус.",
+    perks: [
+      "Бонус за каждую покупку друга",
+      "Бонус используется как скидка на следующую покупку",
+      "Без ограничений — чем больше приглашений, тем больше бонусов",
+    ],
+    btn: "Получить ссылку",
+    big: "∞",
+    bigLabel: "Количество приглашений не ограничено",
+  },
+  en: {
+    eyebrow: "Bonus",
+    title: "Invite — earn a bonus",
+    desc: "Share your personal referral link with friends, your group or your channel. Every purchase through it earns you a bonus.",
+    perks: [
+      "A bonus for every friend who buys",
+      "Spend the bonus as a discount on your next purchase",
+      "No cap — the more invites, the more bonuses",
+    ],
+    btn: "Get invite link",
+    big: "∞",
+    bigLabel: "Unlimited invites",
+  },
+};
 
 export default function Referral() {
+  const { lang } = useLang();
+  const copy = COPY[lang] ?? COPY.uz;
+
   return (
-    <section id="bonus" className="relative py-20 lg:py-28">
+    <section
+      id="bonus"
+      className="scroll-mt-20 border-b-2 border-foreground bg-background-subtle py-20 sm:py-28"
+    >
       <div className="container-x">
-        <div className="card relative overflow-hidden p-8 lg:p-12">
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-tg-500/20 blur-3xl" />
-          <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-tg-400/10 blur-3xl" />
+        <div className="grid border-2 border-foreground bg-card lg:grid-cols-[1.3fr_0.7fr]">
+          <div className="p-8 sm:p-10">
+            <span className="eyebrow">
+              <span className="eyebrow-dot" />
+              {copy.eyebrow}
+            </span>
+            <h2 className="font-clash mt-6 text-3xl font-black uppercase leading-[0.98] tracking-tight sm:text-4xl">
+              {copy.title}
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              {copy.desc}
+            </p>
 
-          <div className="relative grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-            <div>
-              <span className="chip">
-                <GiftIcon className="h-4 w-4" />
-                Bonus dasturi
-              </span>
-              <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-                Do‘stlaringizni taklif qiling — <span className="gradient-text">bonus oling</span>
-              </h2>
-              <p className="mt-3 max-w-xl text-tg-100/75">
-                Premiumtg’ni do‘stlaringizga tavsiya qiling. Har bir do‘stingiz
-                obuna sotib olganda siz bonus va chegirmalarga ega bo‘lasiz.
-              </p>
+            <ul className="mt-7 space-y-3">
+              {copy.perks.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 text-sm font-medium">
+                  <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={3} />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
 
-              <ul className="mt-6 space-y-3">
-                {PERKS.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-sm text-tg-100/85">
-                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
+            <a
+              href={SITE.supportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-8"
+            >
+              {copy.btn}
+              <ArrowUpRightIcon className="h-4 w-4 animate-arrow-nudge" />
+            </a>
+          </div>
 
-              <a
-                href={SITE.supportUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary mt-7"
-              >
-                <GiftIcon className="h-5 w-5" />
-                Taklif havolasini olish
-              </a>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-xs">
-              <div className="card flex flex-col items-center gap-4 bg-ink-800/60 p-7 text-center">
-                <span className="grid h-16 w-16 place-items-center rounded-3xl bg-gradient-to-br from-tg-400 to-tg-600 shadow-glow">
-                  <StarIcon className="h-8 w-8 text-white" />
-                </span>
-                <p className="text-sm text-tg-100/70">Siz ishlab topgan bonus</p>
-                <p className="text-4xl font-extrabold gradient-text">+ Bonus</p>
-                <p className="text-xs text-tg-100/60">
-                  har bir muvaffaqiyatli taklif uchun
-                </p>
-              </div>
-            </div>
+          <div className="flex flex-col items-center justify-center border-t-2 border-foreground bg-primary p-10 text-center text-primary-foreground lg:border-l-2 lg:border-t-0">
+            <span className="font-clash text-[6rem] font-black leading-none">
+              {copy.big}
+            </span>
+            <p className="mt-4 max-w-[14rem] text-xs font-bold uppercase tracking-[0.18em]">
+              {copy.bigLabel}
+            </p>
           </div>
         </div>
       </div>

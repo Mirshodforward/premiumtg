@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
 import { LANGS } from "@/lib/translations";
 import { useLang } from "./LanguageContext";
-import { TelegramIcon } from "./icons";
+import { useTheme } from "./ThemeContext";
+import { ArrowUpRightIcon, LogoMark, MoonIcon, SunIcon } from "./icons";
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const { lang, setLang, tr } = useLang();
+  const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const isBlog = pathname?.startsWith("/blog");
 
@@ -21,135 +21,163 @@ export default function Header() {
     { href: isBlog ? "/#qanday" : "#qanday", label: tr.nav.howItWorks },
     { href: isBlog ? "/#narxlar" : "#narxlar", label: tr.nav.pricing },
     { href: isBlog ? "/#tolov" : "#tolov", label: tr.nav.payment },
-    { href: isBlog ? "/#bonus" : "#bonus", label: tr.nav.bonus },
     { href: isBlog ? "/#faq" : "#faq", label: tr.nav.faq },
     { href: "/blog", label: tr.nav.blog },
   ];
 
+  // Mobil menyu ochiqligida sahifa skrolini to'xtatamiz
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const currentLang = LANGS.find((l) => l.code === lang);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-white/10 bg-ink-900/80 backdrop-blur-xl"
-          : "border-b border-transparent"
-      }`}
-    >
-      <nav className="container-x flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-tg-400 to-tg-600 shadow-glow">
-            <TelegramIcon className="h-5 w-5 text-white" />
-          </span>
-          <span className="text-lg font-extrabold tracking-tight">
-            Premium<span className="gradient-text">tg</span>
+    <header className="sticky top-0 z-50 border-b-2 border-foreground bg-background">
+      <div className="container-x flex h-16 items-center justify-between gap-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2.5"
+          onClick={() => setOpen(false)}
+        >
+          <LogoMark className="text-primary" />
+          <span className="font-clash text-lg font-black uppercase tracking-tight">
+            Premiumtg
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
-          {NAV.map((n) => (
-            <li key={n.href}>
+        <nav className="hidden items-center lg:flex">
+          {NAV.map((n) => {
+            const active = n.href === "/blog" && isBlog;
+            return (
               <Link
+                key={n.href}
                 href={n.href}
-                className={`rounded-lg px-3.5 py-2 text-sm font-medium transition-colors hover:bg-white/5 hover:text-white ${
-                  n.href === "/blog" && isBlog
-                    ? "text-tg-300"
-                    : "text-tg-100/80"
+                className={`border-l-2 border-transparent px-4 py-2 font-clash text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary ${
+                  active ? "text-primary" : "text-foreground"
                 }`}
               >
                 {n.label}
               </Link>
-            </li>
-          ))}
-        </ul>
+            );
+          })}
+        </nav>
 
         <div className="flex items-center gap-2">
-          {/* Language switcher */}
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setLangOpen((v) => !v)}
-              className="flex items-center gap-1.5 rounded-xl border border-white/10 px-3 py-2 text-sm font-medium text-tg-100/80 hover:bg-white/5 hover:text-white"
-            >
-              <span>{currentLang?.flag}</span>
-              <span className="hidden sm:inline">{currentLang?.label}</span>
-              <svg className="h-3.5 w-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-1 min-w-[130px] overflow-hidden rounded-xl border border-white/10 bg-ink-900/95 shadow-lg backdrop-blur-xl">
-                {LANGS.map((l) => (
-                  <button
-                    key={l.code}
-                    type="button"
-                    onClick={() => { setLang(l.code); setLangOpen(false); }}
-                    className={`flex w-full items-center gap-2.5 px-4 py-2.5 text-sm transition-colors hover:bg-white/5 ${
-                      lang === l.code ? "text-tg-300 font-semibold" : "text-tg-100/80"
-                    }`}
-                  >
-                    <span>{l.flag}</span>
-                    {l.label}
-                  </button>
-                ))}
-              </div>
-            )}
+          {/* Til almashtirgich — aktiv holat inversiya bilan */}
+          <div className="hidden border-2 border-foreground sm:inline-flex">
+            {LANGS.map((l, i) => (
+              <button
+                key={l.code}
+                type="button"
+                onClick={() => setLang(l.code)}
+                aria-pressed={lang === l.code}
+                className={`px-2.5 py-1.5 font-clash text-xs font-bold uppercase transition-colors ${
+                  i > 0 ? "border-l-2 border-foreground" : ""
+                } ${
+                  lang === l.code
+                    ? "bg-foreground text-background"
+                    : "hover:bg-muted"
+                }`}
+              >
+                {l.code}
+              </button>
+            ))}
           </div>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Yorug' rejim" : "Qorong'i rejim"}
+            className="grid h-9 w-9 place-items-center border-2 border-foreground transition-colors hover:bg-foreground hover:text-background"
+          >
+            {theme === "dark" ? (
+              <SunIcon className="h-4 w-4" />
+            ) : (
+              <MoonIcon className="h-4 w-4" />
+            )}
+          </button>
 
           <a
             href={SITE.botUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-xl bg-gradient-to-r from-tg-500 to-tg-400 px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105 sm:inline-flex"
+            className="hidden h-9 items-center gap-1.5 border-2 border-border-strong bg-primary px-4 font-clash text-xs font-bold uppercase tracking-wide text-primary-foreground transition-colors hover:bg-foreground hover:text-background sm:inline-flex"
           >
             {tr.nav.buy}
+            <ArrowUpRightIcon className="h-3.5 w-3.5 animate-arrow-nudge" />
           </a>
 
           <button
             type="button"
             aria-label="Menyu"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 lg:hidden"
+            className="grid h-9 w-9 place-items-center border-2 border-foreground transition-colors hover:bg-foreground hover:text-background lg:hidden"
           >
-            <div className="space-y-1.5">
-              <span className={`block h-0.5 w-5 bg-white transition-all ${open ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`block h-0.5 w-5 bg-white transition-all ${open ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 w-5 bg-white transition-all ${open ? "-translate-y-2 -rotate-45" : ""}`} />
-            </div>
+            <span className="space-y-1">
+              <span
+                className={`block h-0.5 w-4 bg-current transition-transform ${
+                  open ? "translate-y-1.5 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-4 bg-current transition-opacity ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-4 bg-current transition-transform ${
+                  open ? "-translate-y-1.5 -rotate-45" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
-      </nav>
+      </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-ink-900/95 backdrop-blur-xl lg:hidden">
-          <ul className="container-x flex flex-col py-3">
+        <div className="border-t-2 border-foreground bg-background lg:hidden">
+          <nav className="flex flex-col">
             {NAV.map((n) => (
-              <li key={n.href}>
-                <Link
-                  href={n.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-tg-100/90 hover:bg-white/5"
-                >
-                  {n.label}
-                </Link>
-              </li>
+              <Link
+                key={n.href}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="border-b-2 border-border-soft px-5 py-4 font-clash text-base font-bold uppercase tracking-wide transition-colors hover:bg-foreground hover:text-background"
+              >
+                {n.label}
+              </Link>
             ))}
+          </nav>
+
+          <div className="flex items-stretch border-b-2 border-foreground">
+            {LANGS.map((l, i) => (
+              <button
+                key={l.code}
+                type="button"
+                onClick={() => setLang(l.code)}
+                className={`flex-1 py-3 font-clash text-sm font-bold uppercase transition-colors ${
+                  i > 0 ? "border-l-2 border-foreground" : ""
+                } ${lang === l.code ? "bg-foreground text-background" : ""}`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="p-5">
             <a
               href={SITE.botUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary mt-2"
+              className="btn-primary w-full"
             >
               {tr.nav.buyNow}
+              <ArrowUpRightIcon className="h-4 w-4" />
             </a>
-          </ul>
+          </div>
         </div>
       )}
     </header>

@@ -2,101 +2,134 @@
 
 import Link from "next/link";
 import { SITE } from "@/lib/site";
-import { TelegramIcon } from "./icons";
+import { ArrowUpRightIcon, LogoMark } from "./icons";
 import { useLang } from "./LanguageContext";
+
+const BIG: Record<string, string> = {
+  uz: "Telegram Premiumni hoziroq ulang",
+  ru: "Подключите Telegram Premium прямо сейчас",
+  en: "Get Telegram Premium right now",
+};
+
+const BLOG_LABEL: Record<string, string> = {
+  uz: "Foydali maqolalar",
+  ru: "Полезные статьи",
+  en: "Useful articles",
+};
 
 export default function Footer() {
   const { lang, tr } = useLang();
   const year = new Date().getFullYear();
 
   const LINKS = [
-    { href: "#imkoniyatlar", label: tr.nav.features },
-    { href: "#qanday", label: tr.nav.howItWorks },
-    { href: "#narxlar", label: tr.nav.pricing },
-    { href: "#tolov", label: tr.nav.payment },
-    { href: "#bonus", label: tr.nav.bonus },
-    { href: "#faq", label: tr.nav.faq },
+    { href: "/#imkoniyatlar", label: tr.nav.features },
+    { href: "/#qanday", label: tr.nav.howItWorks },
+    { href: "/#narxlar", label: tr.nav.pricing },
+    { href: "/#tolov", label: tr.nav.payment },
+    { href: "/#bonus", label: tr.nav.bonus },
+    { href: "/#faq", label: tr.nav.faq },
     { href: "/blog", label: tr.nav.blog },
   ];
 
   return (
-    <footer className="border-t border-white/10 bg-ink-900">
-      <div className="container-x py-12">
+    <footer className="border-t-2 border-foreground bg-background-subtle">
+      <div className="container-x py-16 sm:py-20">
+        <h2 className="font-clash max-w-3xl text-3xl font-black uppercase leading-[0.98] tracking-tight sm:text-5xl">
+          {BIG[lang] ?? BIG.uz}
+        </h2>
+
+        <div className="divider-thick mt-10" />
+
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-tg-400 to-tg-600">
-                <TelegramIcon className="h-5 w-5 text-white" />
-              </span>
-              <span className="text-lg font-extrabold">
-                Premium<span className="gradient-text">tg</span>
+            <div className="inline-flex items-center gap-2.5">
+              <LogoMark className="text-primary" />
+              <span className="font-clash text-lg font-black uppercase tracking-tight">
+                Premiumtg
               </span>
             </div>
-            <p className="mt-4 max-w-sm text-sm text-tg-100/65">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {tr.footer.tagline}
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{tr.footer.sections}</p>
-            <ul className="mt-4 space-y-2.5">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+              {tr.footer.sections}
+            </p>
+            <ul className="mt-5 space-y-2.5">
               {LINKS.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-tg-100/65 transition-colors hover:text-tg-200"
+                    className="font-clash text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary"
                   >
                     {l.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {BLOG_LABEL[lang] ?? BLOG_LABEL.uz} →
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-white">{tr.footer.contact}</p>
-            <div className="mt-4 flex flex-col gap-3">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+              {tr.footer.contact}
+            </p>
+            <div className="mt-5 grid border-l-2 border-t-2 border-foreground">
               <a
                 href={SITE.botUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl border border-tg-400/40 bg-tg-500/10 px-4 py-3 transition-colors hover:border-tg-400/60 hover:bg-tg-500/20"
+                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
               >
-                <TelegramIcon className="h-5 w-5 text-tg-300" />
-                <span className="text-sm font-semibold">@{SITE.botUsername}</span>
-                <span className="ml-auto rounded-full bg-tg-500/30 px-2 py-0.5 text-[10px] font-bold text-tg-200">
-                  Bot
-                </span>
+                <span className="font-clash text-sm font-bold">@{SITE.botUsername}</span>
+                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
+              </a>
+              <a
+                href={SITE.supportUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
+              >
+                <span className="font-clash text-sm font-bold">@{SITE.supportUsername}</span>
+                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
               </a>
               <a
                 href={SITE.channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 transition-colors hover:border-tg-400/40"
+                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
               >
-                <TelegramIcon className="h-5 w-5 text-tg-300" />
-                <span className="text-sm font-medium">@{SITE.channelUsername}</span>
-                <span className="ml-auto text-[10px] text-tg-100/50">
-                  {lang === "ru" ? "Канал" : lang === "en" ? "Channel" : "Kanal"}
-                </span>
+                <span className="font-clash text-sm font-bold">@{SITE.channelUsername}</span>
+                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:text-left">
-          <p className="text-xs text-tg-100/55">
+        <div className="mt-12 flex flex-col gap-3 border-t-2 border-foreground pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-muted-foreground">
             © {year} {SITE.name}. {tr.footer.rights}{" "}
             <a
               href={SITE.ofertaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-tg-300 transition-colors"
+              className="underline underline-offset-2 transition-colors hover:text-primary"
             >
               {tr.footer.oferta}
             </a>
           </p>
-          <p className="text-xs text-tg-100/45">{tr.footer.trademark}</p>
+          <p className="max-w-md text-xs text-muted-foreground/80">
+            {tr.footer.trademark}
+          </p>
         </div>
       </div>
     </footer>

@@ -1,37 +1,35 @@
 "use client";
 
 import { SITE } from "@/lib/site";
-import { BoltIcon, TelegramIcon } from "./icons";
+import { ArrowUpRightIcon } from "./icons";
 import { useLang } from "./LanguageContext";
 
 export default function CTA() {
   const { tr } = useLang();
 
   return (
-    <section className="relative py-12 lg:py-20">
+    <section className="border-b-2 border-foreground py-20 sm:py-28">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-[2rem] border border-tg-400/30 bg-gradient-to-br from-tg-600/30 via-ink-800 to-ink-900 p-10 text-center shadow-glow lg:p-16">
-          <div className="absolute inset-0 -z-10 bg-grid-tg bg-[size:36px_36px] opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-
-          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {tr.cta.title}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-tg-100/80">
+        <div className="reveal-item border-2 border-foreground bg-card p-8 shadow-hard-lg sm:p-12">
+          <h2 className="h2-section max-w-3xl">{tr.cta.title}</h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
             {tr.cta.desc}
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-9 flex flex-col sm:inline-flex sm:flex-row">
             <a
               href={SITE.botUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary w-full sm:w-auto"
+              className="btn-primary"
             >
-              <TelegramIcon className="h-5 w-5" />
               {tr.cta.btnBot}
+              <ArrowUpRightIcon className="h-4 w-4 animate-arrow-nudge" />
             </a>
-            <a href="#narxlar" className="btn-ghost w-full sm:w-auto">
-              <BoltIcon className="h-5 w-5" />
+            <a
+              href="#narxlar"
+              className="btn-secondary border-t-0 sm:border-l-0 sm:border-t-2"
+            >
               {tr.cta.btnPricing}
             </a>
           </div>

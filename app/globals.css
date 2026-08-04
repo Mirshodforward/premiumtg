@@ -2,9 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   RANG TOKENLARI — darslink-dizayn.md, 2-bo'lim
+   Eng muhim qaror: --border = --foreground. Chegara "ingichka kulrang chiziq"
+   emas, matn bilan bir xil qora. Butun uslub shundan kelib chiqadi.
+   ========================================================================== */
+
 :root {
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --background: #ffffff;
+  --background-subtle: #f4f7fa;
+  --foreground: #14171b;
+  --muted: #eef2f4;
+  --muted-foreground: #5a636a;
+  --card: #ffffff;
+  --border: #14171b;
+  --border-strong: #14171b;
+  --border-soft: #e3e9ec;
+  --primary: #4f86c6;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eaf2fb;
+  --accent: #7ea2d4;
+  --highlight: #5b8ac4;
+  --ring: #7ea2d4;
+  --radius: 0rem;
+
+  /* Asosiy matn — tizim sans stack (darslink-dizayn.md, 3.1).
+     Sarlavhalar uchun Clash Display alohida ulanadi. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
+
+/* Dark'da chegara yumshatilgan — light'dagidek maksimal kontrast emas,
+   aks holda ko'z charchaydi (darslink-dizayn.md, 2.2). */
+.dl-editorial-dark {
+  --background: #0d1014;
+  --background-subtle: #12161c;
+  --foreground: #e8edf2;
+  --muted: #1a1f27;
+  --muted-foreground: #9aa4af;
+  --card: #14181f;
+  --border: #2b333d;
+  --border-strong: #39424e;
+  --border-soft: #20262f;
+  --primary: #5e93cf;
+  --primary-foreground: #0d1014;
+  --primary-soft: #172230;
+  --accent: #7ea2d4;
+  --highlight: #6b95cc;
+  --ring: #7ea2d4;
+}
+
+/* ==========================================================================
+   BAZA
+   ========================================================================== */
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -12,84 +62,325 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: #070b14;
-  color: #e8eefb;
-  font-feature-settings: "ss01", "cv01";
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(34, 158, 217, 0.4);
-  color: #fff;
+  background: var(--foreground);
+  color: var(--background);
 }
 
-/* Maxsus scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
+  height: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b1220;
+  background: var(--background-subtle);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1b87bb;
-  border-radius: 6px;
+  background: var(--foreground);
+  border: 3px solid var(--background-subtle);
 }
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+
+/* ==========================================================================
+   KOMPONENTLAR
+   ========================================================================== */
 
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-tg-300 via-tg-400 to-tg-200 bg-clip-text text-transparent;
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
 
-  .card {
-    @apply rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  .font-clash {
+    font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
   }
 
+  /* Asosiy tugma — baland, qalin chegarali, hover'da inversiya */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-tg-500 to-tg-400 px-7 py-4 text-base font-semibold text-white shadow-glow transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_70px_-10px_rgba(34,158,217,0.8)] active:scale-95;
+    @apply inline-flex h-13 items-center justify-center gap-2 whitespace-nowrap border-2
+           border-border-strong bg-primary px-8 py-3.5 font-clash text-base font-bold
+           uppercase tracking-wide text-primary-foreground transition-colors duration-150
+           hover:bg-foreground hover:text-background
+           disabled:pointer-events-none disabled:opacity-60;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/[0.08] active:scale-95;
+  .btn-secondary {
+    @apply inline-flex h-13 items-center justify-center gap-2 whitespace-nowrap border-2
+           border-border-strong bg-card px-8 py-3.5 font-clash text-base font-bold
+           uppercase tracking-wide text-foreground transition-colors duration-150
+           hover:bg-foreground hover:text-background;
   }
 
-  .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-tg-100;
+  .btn-sm {
+    @apply inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap border-2
+           border-border-strong px-5 font-clash text-sm font-bold uppercase tracking-wide
+           transition-colors duration-150 hover:bg-foreground hover:text-background;
+  }
+
+  /* "Eyebrow" — bo'lim ustidagi kichik yorliq. Nuqta KVADRAT, doira emas. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 border-2 border-foreground bg-card px-3 py-1.5
+           text-xs font-bold uppercase tracking-[0.18em] text-foreground;
+  }
+
+  .eyebrow-dot {
+    @apply inline-block h-1.5 w-1.5 shrink-0 bg-accent;
+  }
+
+  /* Sarlavhalar */
+  .h1-display {
+    @apply font-clash text-[clamp(1.85rem,8.5vw,6.2rem)] font-black uppercase
+           leading-[0.95] tracking-tight;
+  }
+
+  .h2-section {
+    @apply font-clash text-3xl font-black uppercase tracking-tight sm:text-5xl
+           lg:text-6xl lg:leading-[0.98];
+  }
+
+  .h3-card {
+    @apply font-clash text-xl font-bold uppercase tracking-tight;
+  }
+
+  /* Ichki ajratgich — yumshoq chiziq emas, qalin plomba */
+  .divider-thick {
+    @apply my-6 h-0.5 bg-foreground;
+  }
+
+  /* Qattiq siljigan soya (blursiz) */
+  .shadow-hard {
+    box-shadow: 6px 6px 0 0 var(--foreground);
+  }
+  .shadow-hard-sm {
+    box-shadow: 4px 4px 0 0 var(--foreground);
+  }
+  .shadow-hard-lg {
+    box-shadow: 8px 8px 0 0 var(--foreground);
   }
 }
 
-/* Aurora fon effekti */
-.aurora {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+/* ==========================================================================
+   ANIMATSIYALAR — darslink-dizayn.md, 8-bo'lim
+   Easing: cubic-bezier(.22,1,.36,1) — tez boshlanib, yumshoq to'xtaydi.
+   ========================================================================== */
+
+/* Scroll-reveal: progressive enhancement — JS bo'lmasa hamma narsa ko'rinadi */
+.reveal-item {
+  opacity: 1;
 }
-.aurora::before,
-.aurora::after {
+.js .reveal-item {
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js .reveal-item[data-shown="1"] {
+  opacity: 1;
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .animate-marquee,
+  .animate-arrow-nudge,
+  .animate-badge-pop,
+  .animate-fade-up,
+  .animate-page-in {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==========================================================================
+   BLOG MAQOLA MATNI (.prose-dl)
+   Typography plagini yo'q — qo'lda yozilgan, uslubga to'liq mos.
+   ========================================================================== */
+
+.prose-dl {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.prose-dl > * + * {
+  margin-top: 1.15rem;
+}
+
+.prose-dl h2 {
+  font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--foreground);
+}
+
+.prose-dl h3 {
+  font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.prose-dl p {
+  text-wrap: pretty;
+}
+
+.prose-dl strong {
+  font-weight: 700;
+}
+
+.prose-dl a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+.prose-dl a:hover {
+  background: var(--foreground);
+  color: var(--background);
+  text-decoration: none;
+}
+
+.prose-dl ul,
+.prose-dl ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+.prose-dl ul > li,
+.prose-dl ol > li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-top: 0.6rem;
+}
+
+/* Kvadrat nuqta — bu uslubda doira ishlatilmaydi */
+.prose-dl ul > li::before {
   content: "";
   position: absolute;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.5;
+  left: 0.25rem;
+  top: 0.7em;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: var(--primary);
 }
-.aurora::before {
-  top: -20%;
-  left: -10%;
-  background: radial-gradient(circle, rgba(34, 158, 217, 0.5), transparent 60%);
+
+.prose-dl ol {
+  counter-reset: dl-counter;
 }
-.aurora::after {
-  bottom: -25%;
-  right: -10%;
-  background: radial-gradient(circle, rgba(70, 173, 245, 0.35), transparent 60%);
+.prose-dl ol > li {
+  counter-increment: dl-counter;
+}
+.prose-dl ol > li::before {
+  content: counter(dl-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.prose-dl blockquote {
+  border-left: 4px solid var(--primary);
+  background: var(--background-subtle);
+  padding: 1rem 1.25rem;
+  font-weight: 500;
+}
+
+.prose-dl table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose-dl thead th {
+  border: 2px solid var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+  font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+}
+
+.prose-dl tbody td {
+  border: 2px solid var(--foreground);
+  padding: 0.6rem 0.85rem;
+  vertical-align: top;
+}
+
+.prose-dl tbody tr:nth-child(even) {
+  background: var(--background-subtle);
+}
+
+.prose-dl .table-wrap {
+  overflow-x: auto;
+  border: 0;
+}
+
+.prose-dl code {
+  background: var(--muted);
+  border: 1px solid var(--border-soft);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.875em;
+}
+
+/* Muhim eslatma bloki (markdown'dagi "> " qatoridan yasaladi) */
+.prose-dl .callout {
+  border: 2px solid var(--foreground);
+  background: var(--primary-soft);
+  padding: 1.15rem 1.25rem;
+  box-shadow: 5px 5px 0 0 var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .prose-dl {
+    font-size: 1.05rem;
+  }
+  .prose-dl h2 {
+    font-size: 2.25rem;
+  }
+  .prose-dl h3 {
+    font-size: 1.4rem;
+  }
 }

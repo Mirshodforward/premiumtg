@@ -1,52 +1,74 @@
-import { CardIcon, ShieldIcon } from "./icons";
+"use client";
 
-const METHODS = [
-  { name: "Click", color: "from-sky-400 to-blue-500" },
-  { name: "Payme", color: "from-cyan-300 to-teal-400" },
-  { name: "Paynet", color: "from-orange-300 to-amber-500" },
-  { name: "Uzcard", color: "from-indigo-300 to-blue-500" },
-  { name: "Humo", color: "from-emerald-300 to-green-500" },
-  { name: "Bank kartasi", color: "from-tg-300 to-tg-500" },
-];
+import { ShieldIcon } from "./icons";
+import { useLang } from "./LanguageContext";
+
+const METHODS = ["Click", "Payme", "Paynet", "Uzcard", "Humo", "Bank kartasi"];
+
+const COPY: Record<
+  string,
+  { eyebrow: string; title: string; desc: string; note: string; noteBold: string; last: string }
+> = {
+  uz: {
+    eyebrow: "To'lov",
+    title: "Istalgan karta bilan to'lang",
+    desc: "O'zbekistondagi barcha ommabop to'lov tizimlari qabul qilinadi. Xorijiy karta, dollar hisobi yoki kripto hamyon kerak emas.",
+    noteBold: "Karta ma'lumotlari bizga ko'rinmaydi.",
+    note: "To'lov Click/Payme kabi litsenziyalangan tizimlarning himoyalangan kanallari orqali o'tadi va saytda saqlanmaydi.",
+    last: "Bank kartasi",
+  },
+  ru: {
+    eyebrow: "Оплата",
+    title: "Платите любой картой",
+    desc: "Принимаются все популярные платёжные системы Узбекистана. Иностранная карта, долларовый счёт или крипто-кошелёк не нужны.",
+    noteBold: "Данные карты нам не видны.",
+    note: "Платёж проходит по защищённым каналам лицензированных систем вроде Click/Payme и на сайте не сохраняется.",
+    last: "Банковская карта",
+  },
+  en: {
+    eyebrow: "Payment",
+    title: "Pay with any card",
+    desc: "All popular Uzbek payment systems are accepted. No foreign card, dollar account or crypto wallet required.",
+    noteBold: "We never see your card details.",
+    note: "Payments run through the secured channels of licensed providers like Click/Payme and are not stored on the site.",
+    last: "Bank card",
+  },
+};
 
 export default function Payments() {
+  const { lang } = useLang();
+  const copy = COPY[lang] ?? COPY.uz;
+  const methods = [...METHODS.slice(0, 5), copy.last];
+
   return (
-    <section id="tolov" className="relative py-20 lg:py-28">
-      <div className="container-x">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section id="tolov" className="scroll-mt-20 border-b-2 border-foreground py-20 sm:py-28">
+      <div className="container-wide">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <span className="chip">To‘lov usullari</span>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Istalgan karta bilan bemalol to‘lang
-            </h2>
-            <p className="mt-3 text-tg-100/75">
-              O‘zbekistondagi barcha mashhur to‘lov tizimlari va bank kartalarini
-              qabul qilamiz. To‘lov bir necha soniyada amalga oshadi — so‘ng
-              obuna avtomatik faollashadi.
+            <span className="eyebrow reveal-item">
+              <span className="eyebrow-dot" />
+              {copy.eyebrow}
+            </span>
+            <h2 className="h2-section reveal-item mt-6">{copy.title}</h2>
+            <p className="reveal-item mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+              {copy.desc}
             </p>
 
-            <div className="mt-6 flex items-start gap-3 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-4">
-              <ShieldIcon className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
-              <p className="text-sm text-tg-100/85">
-                <strong className="text-white">Xavfsiz to‘lov.</strong> Karta
-                ma’lumotlaringiz rasmiy to‘lov tizimlari orqali himoyalangan
-                holda o‘tadi — biz ularni saqlamaymiz.
+            <div className="reveal-item mt-8 flex items-start gap-3 border-2 border-foreground bg-primary-soft p-5 shadow-hard-sm">
+              <ShieldIcon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <p className="text-sm leading-relaxed">
+                <strong className="font-bold">{copy.noteBold}</strong> {copy.note}
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {METHODS.map((m) => (
+          <div className="reveal-item grid border-l-2 border-t-2 border-border-strong sm:grid-cols-3">
+            {methods.map((m) => (
               <div
-                key={m.name}
-                className="card group flex flex-col items-center justify-center gap-3 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-tg-400/40"
+                key={m}
+                className="flex h-28 items-center justify-center border-b-2 border-r-2 border-border-strong bg-card px-4 text-center font-clash text-base font-bold uppercase tracking-tight transition-colors duration-300 hover:bg-foreground hover:text-background sm:h-32"
               >
-                <span
-                  className={`grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${m.color} shadow-lg transition-transform group-hover:scale-110`}
-                >
-                  <CardIcon className="h-6 w-6 text-white" />
-                </span>
-                <span className="text-sm font-semibold text-tg-50">{m.name}</span>
+                {m}
               </div>
             ))}
           </div>

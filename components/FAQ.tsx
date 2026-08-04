@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronIcon, TelegramIcon } from "./icons";
+import { ArrowUpRightIcon, PlusIcon } from "./icons";
 import { SITE } from "@/lib/site";
 import { useLang } from "./LanguageContext";
 
@@ -20,7 +20,7 @@ const FAQS_UZ = [
   },
   {
     q: "Telegram Premium narxlari qancha?",
-    a: "3 oy — 172 000 so'm, 6 oy — 232 000 so'm, 12 oy — 422 000 so'm.",
+    a: "3 oy — 172 000 so'm, 6 oy — 232 000 so'm, 12 oy — 422 000 so'm. Yillik paketda oylik narx ≈35 167 so'mga tushadi.",
   },
   {
     q: "Do'stlarni taklif qilib bonus olsa bo'ladimi?",
@@ -28,7 +28,7 @@ const FAQS_UZ = [
   },
   {
     q: "Obuna haqiqiy va rasmiymi?",
-    a: "Ha, siz to'liq rasmiy Telegram Premium obunasini olasiz: reklamasiz, 4 GB gacha fayl, tezkor yuklash, premium stikerlar va barcha imkoniyatlar.",
+    a: "Ha, siz to'liq rasmiy Telegram Premium obunasini olasiz: reklamasiz, 4 GB gacha fayl, tezkor yuklash, transkripsiya, premium stikerlar va barcha imkoniyatlar.",
   },
 ];
 
@@ -47,7 +47,7 @@ const FAQS_RU = [
   },
   {
     q: "Сколько стоит Telegram Premium?",
-    a: "3 месяца — 172 000 сум, 6 месяцев — 232 000 сум, 12 месяцев — 422 000 сум.",
+    a: "3 месяца — 172 000 сум, 6 месяцев — 232 000 сум, 12 месяцев — 422 000 сум. В годовом пакете выходит ≈35 167 сум в месяц.",
   },
   {
     q: "Можно ли получить бонус за приглашение друзей?",
@@ -55,7 +55,7 @@ const FAQS_RU = [
   },
   {
     q: "Подписка настоящая и официальная?",
-    a: "Да, вы получаете полноценную официальную подписку Telegram Premium: без рекламы, файлы до 4 ГБ, быстрая загрузка, Premium-стикеры и все возможности.",
+    a: "Да, вы получаете полноценную официальную подписку Telegram Premium: без рекламы, файлы до 4 ГБ, быстрая загрузка, транскрипция, Premium-стикеры и все возможности.",
   },
 ];
 
@@ -74,7 +74,7 @@ const FAQS_EN = [
   },
   {
     q: "How much does Telegram Premium cost?",
-    a: "3 months — 172,000 UZS, 6 months — 232,000 UZS, 12 months — 422,000 UZS.",
+    a: "3 months — 172,000 UZS, 6 months — 232,000 UZS, 12 months — 422,000 UZS. The annual plan works out at ≈35,167 UZS per month.",
   },
   {
     q: "Can I get a bonus for inviting friends?",
@@ -82,72 +82,61 @@ const FAQS_EN = [
   },
   {
     q: "Is the subscription real and official?",
-    a: "Yes, you receive a full official Telegram Premium subscription: no ads, files up to 4 GB, fast downloads, Premium stickers and all features.",
+    a: "Yes, you receive a full official Telegram Premium subscription: no ads, files up to 4 GB, fast downloads, transcription, Premium stickers and all features.",
   },
 ];
 
 const FAQS_MAP = { uz: FAQS_UZ, ru: FAQS_RU, en: FAQS_EN };
 
+const TITLE: Record<string, string> = {
+  uz: "So'raladigan savollar",
+  ru: "Частые вопросы",
+  en: "Frequently asked questions",
+};
+
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const { lang, tr } = useLang();
-  const FAQS = FAQS_MAP[lang];
+  const FAQS = FAQS_MAP[lang] ?? FAQS_UZ;
 
   return (
-    <section id="faq" className="relative py-20 lg:py-28">
+    <section id="faq" className="scroll-mt-20 border-b-2 border-foreground py-20 sm:py-28">
       <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="chip mx-auto">{tr.nav.faq}</span>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            {lang === "ru"
-              ? "Часто задаваемые вопросы"
-              : lang === "en"
-              ? "Frequently Asked Questions"
-              : "Ko'p so'raladigan savollar"}
-          </h2>
-          <p className="mt-3 text-tg-100/75">
-            {tr.faq.noAnswer}{" "}
-            <a
-              href={SITE.botUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-tg-300 hover:text-tg-200 underline underline-offset-2"
-            >
-              {tr.faq.writeBot}
-            </a>
-          </p>
-        </div>
+        <span className="eyebrow reveal-item">
+          <span className="eyebrow-dot" />
+          {tr.nav.faq}
+        </span>
+        <h2 className="h2-section reveal-item mt-6">{TITLE[lang] ?? TITLE.uz}</h2>
 
-        <div className="mx-auto mt-10 max-w-3xl space-y-3">
+        <div className="reveal-item mt-12 border-2 border-foreground bg-card">
           {FAQS.map((item, i) => {
             const isOpen = open === i;
             return (
-              <div
-                key={i}
-                className={`card overflow-hidden transition-colors ${
-                  isOpen ? "border-tg-400/40 bg-white/[0.05]" : ""
-                }`}
-              >
+              <div key={item.q} className={i > 0 ? "border-t-2 border-foreground" : ""}>
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-muted sm:px-6"
                 >
-                  <span className="font-semibold text-tg-50">{item.q}</span>
-                  <ChevronIcon
-                    className={`h-5 w-5 shrink-0 text-tg-300 transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
+                  <span className="font-clash text-base font-bold uppercase tracking-tight sm:text-lg">
+                    {item.q}
+                  </span>
+                  {/* + ikonkasi rotate-45 bilan × ga aylanadi */}
+                  <PlusIcon
+                    className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${
+                      isOpen ? "rotate-45" : ""
                     }`}
                   />
                 </button>
+                {/* grid-rows-[0fr] → [1fr]: balandlikni JS bilan o'lchamasdan silliq ochilish */}
                 <div
-                  className={`grid transition-all duration-300 ${
-                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  className={`grid transition-all duration-300 ease-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-sm leading-relaxed text-tg-100/75">
+                    <p className="border-t-2 border-border-soft px-5 py-5 text-sm leading-relaxed text-muted-foreground sm:px-6 sm:text-base">
                       {item.a}
                     </p>
                   </div>
@@ -157,17 +146,18 @@ export default function FAQ() {
           })}
         </div>
 
-        <div className="mx-auto mt-8 flex justify-center">
+        <p className="mt-8 text-sm text-muted-foreground">
+          {tr.faq.noAnswer}{" "}
           <a
             href={SITE.botUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-tg-400/30 bg-tg-500/10 px-5 py-3 text-sm font-semibold text-tg-200 transition-colors hover:border-tg-400/50 hover:bg-tg-500/20"
+            className="inline-flex items-center gap-1 font-bold text-primary underline underline-offset-4"
           >
-            <TelegramIcon className="h-4 w-4" />
             {tr.faq.writeBot} @{SITE.botUsername}
+            <ArrowUpRightIcon className="h-3.5 w-3.5" />
           </a>
-        </div>
+        </p>
       </div>
     </section>
   );
