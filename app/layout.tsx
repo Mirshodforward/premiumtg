@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { themeInitScript } from "@/lib/theme";
 import Reveal from "@/components/Reveal";
+import { Analytics } from "@vercel/analytics/next";
 
 const TITLE_DEFAULT =
   "Telegram Premium sotib olish — 10 soniyada avtomatik | Premiumtg.uz";
@@ -185,6 +186,7 @@ export default function RootLayout({
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
         <Reveal />
+        <Analytics />
       </body>
     </html>
   );
