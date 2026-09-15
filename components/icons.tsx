@@ -9,34 +9,74 @@ export const TelegramIcon = (p: P) => (
 );
 
 export const BoltIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" />
   </svg>
 );
 
 export const ShieldIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
     <path d="m9 12 2 2 4-4" />
   </svg>
 );
 
 export const TagIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z" />
     <circle cx="7" cy="7" r="1.2" fill="currentColor" />
   </svg>
 );
 
 export const CardIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <rect x="2" y="5" width="20" height="14" rx="2.5" />
     <path d="M2 10h20" />
   </svg>
 );
 
 export const GiftIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <rect x="3" y="8" width="18" height="13" rx="1.5" />
     <path d="M12 8v13M3 12h18" />
     <path d="M12 8S10 2 7 4s5 4 5 4ZM12 8s2-6 5-4-5 4-5 4Z" />
@@ -44,7 +84,15 @@ export const GiftIcon = (p: P) => (
 );
 
 export const CheckIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="m5 13 4 4L19 7" />
   </svg>
 );
@@ -56,27 +104,59 @@ export const StarIcon = (p: P) => (
 );
 
 export const UserIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <circle cx="12" cy="8" r="4" />
     <path d="M4 21a8 8 0 0 1 16 0" />
   </svg>
 );
 
 export const ClockIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <circle cx="12" cy="12" r="9" />
     <path d="M12 7v5l3 2" />
   </svg>
 );
 
 export const ChevronIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="m6 9 6 6 6-6" />
   </svg>
 );
 
 export const HeadsetIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
     <rect x="2" y="13" width="4" height="7" rx="1.5" />
     <rect x="18" y="13" width="4" height="7" rx="1.5" />
@@ -85,39 +165,87 @@ export const HeadsetIcon = (p: P) => (
 );
 
 export const ArrowUpRightIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M7 17 17 7M7 7h10v10" />
   </svg>
 );
 
 export const PlusIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M12 5v14M5 12h14" />
   </svg>
 );
 
 export const SunIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <circle cx="12" cy="12" r="4" />
     <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
   </svg>
 );
 
 export const MoonIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
   </svg>
 );
 
 export const SearchIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <circle cx="11" cy="11" r="7" />
     <path d="m20 20-3.5-3.5" />
   </svg>
 );
 
 export const BookIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5Z" />
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
   </svg>
@@ -132,16 +260,104 @@ export const LogoMark = ({ className = "" }: { className?: string }) => (
     className={`relative inline-block h-5 w-[22px] shrink-0 ${className}`}
     aria-hidden="true"
   >
-    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-20" style={{ left: 0 }} />
-    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-50" style={{ left: "4.2px" }} />
-    <span className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current" style={{ left: "8.4px" }} />
+    <span
+      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-20"
+      style={{ left: 0 }}
+    />
+    <span
+      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-50"
+      style={{ left: "4.2px" }}
+    />
+    <span
+      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current"
+      style={{ left: "8.4px" }}
+    />
   </span>
 );
 
 export const RocketIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...p}
+  >
     <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" />
     <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" />
     <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
   </svg>
 );
+
+/** A lightweight dimensional Premium star; unique gradient ids allow reuse. */
+export const PremiumStar = ({
+  idPrefix,
+  ...props
+}: P & { idPrefix: string }) => {
+  const shape =
+    "M113 24Q120 8 127 24L150 75Q152 80 158 81L211 87Q231 90 216 105L176 141Q172 144 174 151L187 205Q192 224 174 214L125 186Q120 183 115 186L66 214Q48 224 53 205L66 151Q68 144 64 141L24 105Q9 90 29 87L82 81Q88 80 90 75Z";
+  return (
+    <svg viewBox="0 0 240 240" fill="none" {...props}>
+      <defs>
+        <linearGradient
+          id={`${idPrefix}-face`}
+          x1="42"
+          y1="46"
+          x2="203"
+          y2="196"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#b4e1ff" />
+          <stop offset=".28" stopColor="#9294ff" />
+          <stop offset=".58" stopColor="#9a6ee8" />
+          <stop offset=".82" stopColor="#bf83ef" />
+          <stop offset="1" stopColor="#e5b1fa" />
+        </linearGradient>
+        <linearGradient
+          id={`${idPrefix}-edge`}
+          x1="30"
+          y1="45"
+          x2="176"
+          y2="231"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#749de7" />
+          <stop offset=".5" stopColor="#5141a7" />
+          <stop offset="1" stopColor="#a16dcf" />
+        </linearGradient>
+        <linearGradient
+          id={`${idPrefix}-shine`}
+          x1="60"
+          y1="37"
+          x2="165"
+          y2="194"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#fff" stopOpacity=".9" />
+          <stop offset=".5" stopColor="#fff" stopOpacity=".12" />
+          <stop offset="1" stopColor="#fff" stopOpacity=".4" />
+        </linearGradient>
+      </defs>
+      <path
+        d={shape}
+        transform="translate(0 7)"
+        fill={`url(#${idPrefix}-edge)`}
+      />
+      <path
+        d={shape}
+        fill={`url(#${idPrefix}-face)`}
+        stroke={`url(#${idPrefix}-shine)`}
+        strokeWidth="2"
+      />
+      <path
+        d="M120 28 102 94 30 98 89 123 65 203 120 156 177 203 153 123 212 98 140 94Z"
+        fill={`url(#${idPrefix}-shine)`}
+        opacity=".38"
+      />
+      <path d="m120 28-18 66 18 62 20-62Z" fill="#fff" opacity=".14" />
+      <path d="m178 55 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#fff" />
+    </svg>
+  );
+};

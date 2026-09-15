@@ -3,9 +3,9 @@
 export const SITE = {
   name: "Premiumtg",
   domain: "https://premiumtg.uz",
-  tagline: "Telegram Premium — 10 soniyada avtomatik",
+  tagline: "Telegram Premium — ko‘proq imkoniyat",
   description:
-    "Premiumtg orqali Telegram Premium obunasini eng arzon narxda sotib oling. To'lovdan so'ng 10 soniyada avtomatik faollashadi. Click, Payme, Paynet, Uzcard, Humo va istalgan bank kartasi qabul qilinadi.",
+    "O‘zbekistonda Telegram Premium sotib olish: 3, 6, 12 oylik narxlar, username orqali ulash va Click, Payme, Paynet, Uzum Bank to‘lov qo‘llanmalari.",
   supportUsername: "StarsPaymeeSupport",
   supportUrl: "https://t.me/StarsPaymeeSupport",
   botUsername: "premiumtg_uzbot",
@@ -13,7 +13,7 @@ export const SITE = {
   channelUsername: "StarsPaymee",
   channelUrl: "https://t.me/StarsPaymee",
   ofertaUrl: "https://premiumtg.uz/oferta",
-  ogImage: "/og.png",
+  ogImage: "/opengraph-image",
 } as const;
 
 export type Plan = {
@@ -57,9 +57,17 @@ export const PREMIUM_PLANS: Plan[] = [
 // Akkauntga kirib berish xizmati — alohida xizmat.
 export const LOGIN_PLANS: Plan[] = [
   { id: "login-1", duration: "1 oy", months: 1, price: 50000 },
-  { id: "login-12", duration: "1 yil", months: 12, price: 300000, badge: "Tejamkor" },
+  {
+    id: "login-12",
+    duration: "1 yil",
+    months: 12,
+    price: 300000,
+    badge: "Tejamkor",
+  },
 ];
 
 export function formatSom(value: number): string {
   return value.toLocaleString("ru-RU").replace(/,/g, " ") + " so'm";
 }
+
+export const SITE_UPDATED = "2026-09-14";

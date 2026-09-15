@@ -1,135 +1,74 @@
 "use client";
-
 import Link from "next/link";
-import { SITE } from "@/lib/site";
-import { ArrowUpRightIcon, LogoMark } from "./icons";
 import { useLang } from "./LanguageContext";
-
-const BIG: Record<string, string> = {
-  uz: "Telegram Premiumni hoziroq ulang",
-  ru: "Подключите Telegram Premium прямо сейчас",
-  en: "Get Telegram Premium right now",
-};
-
-const BLOG_LABEL: Record<string, string> = {
-  uz: "Foydali maqolalar",
-  ru: "Полезные статьи",
-  en: "Useful articles",
-};
-
+import { SITE } from "@/lib/site";
+import { StarIcon, ArrowUpRightIcon } from "./icons";
 export default function Footer() {
   const { lang, tr } = useLang();
-  const year = new Date().getFullYear();
-
-  const LINKS = [
-    { href: "/#imkoniyatlar", label: tr.nav.features },
-    { href: "/#qanday", label: tr.nav.howItWorks },
-    { href: "/#narxlar", label: tr.nav.pricing },
-    { href: "/#tolov", label: tr.nav.payment },
-    { href: "/#bonus", label: tr.nav.bonus },
-    { href: "/#faq", label: tr.nav.faq },
-    { href: "/blog", label: tr.nav.blog },
-  ];
-
+  const words =
+    lang === "ru"
+      ? [
+          "Больше возможностей. Каждый день.",
+          "Полезное",
+          "Связаться",
+          "Редакция и источники",
+        ]
+      : lang === "en"
+        ? [
+            "More possibilities. Every day.",
+            "Explore",
+            "Get in touch",
+            "Editorial policy & sources",
+          ]
+        : [
+            "Har kuni ko‘proq imkoniyat.",
+            "Foydali havolalar",
+            "Bog‘lanish",
+            "Tahririyat va manbalar",
+          ];
   return (
-    <footer className="border-t-2 border-foreground bg-background-subtle">
-      <div className="container-x py-16 sm:py-20">
-        <h2 className="font-clash max-w-3xl text-3xl font-black uppercase leading-[0.98] tracking-tight sm:text-5xl">
-          {BIG[lang] ?? BIG.uz}
-        </h2>
-
-        <div className="divider-thick mt-10" />
-
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="site-footer">
+      <div className="container-wide">
+        <div className="footer-grid">
           <div>
-            <div className="inline-flex items-center gap-2.5">
-              <LogoMark className="text-primary" />
-              <span className="font-clash text-lg font-black uppercase tracking-tight">
-                Premiumtg
+            <Link href="/" className="brand">
+              <span className="brand-mark">
+                <StarIcon />
               </span>
-            </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {tr.footer.tagline}
-            </p>
+              premium<span className="brand-light">tg</span>.
+            </Link>
+            <p className="footer-tagline">{words[0]}</p>
+            <p className="muted small">{tr.footer.trademark}</p>
           </div>
-
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-              {tr.footer.sections}
-            </p>
-            <ul className="mt-5 space-y-2.5">
-              {LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="font-clash text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  {BLOG_LABEL[lang] ?? BLOG_LABEL.uz} →
-                </Link>
-              </li>
-            </ul>
+            <h2>{words[1]}</h2>
+            <Link href="/#narxlar">{tr.nav.pricing}</Link>
+            <Link href="/blog">{tr.nav.blog}</Link>
+            <Link href="/blog/telegram-premium-ozbekistonda-tolov-usullari">
+              Click, Payme, Paynet, Uzum Bank
+            </Link>
+            <Link href="/about">{words[3]}</Link>
           </div>
-
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-              {tr.footer.contact}
-            </p>
-            <div className="mt-5 grid border-l-2 border-t-2 border-foreground">
-              <a
-                href={SITE.botUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
-              >
-                <span className="font-clash text-sm font-bold">@{SITE.botUsername}</span>
-                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
-              </a>
-              <a
-                href={SITE.supportUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
-              >
-                <span className="font-clash text-sm font-bold">@{SITE.supportUsername}</span>
-                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
-              </a>
-              <a
-                href={SITE.channelUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 border-b-2 border-r-2 border-foreground bg-card px-4 py-3.5 transition-colors hover:bg-foreground hover:text-background"
-              >
-                <span className="font-clash text-sm font-bold">@{SITE.channelUsername}</span>
-                <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
-              </a>
-            </div>
+            <h2>{words[2]}</h2>
+            <a href={SITE.botUrl} target="_blank" rel="noopener noreferrer">
+              Telegram bot <ArrowUpRightIcon />
+            </a>
+            <a href={SITE.supportUrl} target="_blank" rel="noopener noreferrer">
+              {tr.nav.faq} <ArrowUpRightIcon />
+            </a>
+            <a href={SITE.channelUrl} target="_blank" rel="noopener noreferrer">
+              @{SITE.channelUsername} <ArrowUpRightIcon />
+            </a>
           </div>
         </div>
-
-        <div className="mt-12 flex flex-col gap-3 border-t-2 border-foreground pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">
-            © {year} {SITE.name}. {tr.footer.rights}{" "}
-            <a
-              href={SITE.ofertaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 transition-colors hover:text-primary"
-            >
-              {tr.footer.oferta}
-            </a>
-          </p>
-          <p className="max-w-md text-xs text-muted-foreground/80">
-            {tr.footer.trademark}
-          </p>
+        <div className="footer-bottom">
+          <span>
+            © {new Date().getFullYear()} Premiumtg. {tr.footer.rights}
+          </span>
+          <span>
+            O‘zbekiston uchun <span className="status-dot" /> UZS
+          </span>
         </div>
       </div>
     </footer>

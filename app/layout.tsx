@@ -4,85 +4,50 @@ import { SITE } from "@/lib/site";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { themeInitScript } from "@/lib/theme";
-import Reveal from "@/components/Reveal";
-
-const TITLE_DEFAULT =
-  "Telegram Premium sotib olish — 10 soniyada avtomatik | Premiumtg.uz";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
   title: {
-    default: TITLE_DEFAULT,
+    default: "Telegram Premium sotib olish — narxlar va to‘lov | Premiumtg.uz",
     template: "%s | Premiumtg.uz",
   },
   description: SITE.description,
   keywords: [
-    // Tranzaksion
     "telegram premium sotib olish",
-    "telegram premium olish",
-    "telegram premium ulash",
-    "tg premium sotib olish",
-    "telegram premium uzbekistonda sotib olish",
-    // Narx
     "telegram premium narxi",
-    "telegram premium narxi 2026",
-    "telegram premium qancha turadi",
-    "telegram premium arzon",
-    "eng arzon telegram premium",
-    "telegram premium yillik narxi",
-    // To'lov usuli
-    "telegram premium click orqali",
-    "telegram premium payme orqali",
-    "telegram premium uzcard",
-    "telegram premium humo",
+    "tg premium uzbekistonda",
+    "telegram premium click payme",
     "telegram premium paynet",
-    // Savol shakli
-    "telegram premium nima",
-    "telegram premium qanday olinadi",
-    "telegram premium qanday ulanadi",
-    // Ishonch
-    "telegram premium ishonchli sayt",
-    "akkauntga kirmasdan premium olish",
-    "username orqali premium olish",
-    // Brend
-    "premiumtg",
-    "premiumtg uz",
-    "premiumtg.uz",
-    // Ruscha
-    "телеграм премиум купить узбекистан",
-    "телеграм премиум цена узбекистан",
-    "купить telegram premium дешево",
-    "как купить телеграм премиум в узбекистане",
-    // Aloqador
-    "telegram stars sotib olish",
-    "telegram premium sovg'a qilish",
-    "buy telegram premium uzbekistan",
+    "telegram premium uzum bank",
   ],
-  authors: [{ name: SITE.name, url: SITE.domain }],
-  creator: SITE.name,
+  authors: [{ name: "Premiumtg tahririyati", url: `${SITE.domain}/about` }],
   publisher: SITE.name,
   applicationName: SITE.name,
-  category: "shopping",
   alternates: {
     canonical: SITE.domain,
-    types: {
-      "application/rss+xml": `${SITE.domain}/blog/rss.xml`,
-    },
+    types: { "application/rss+xml": `${SITE.domain}/blog/rss.xml` },
   },
   openGraph: {
     type: "website",
     locale: "uz_UZ",
-    alternateLocale: ["ru_RU", "en_US"],
     url: SITE.domain,
     siteName: SITE.name,
-    title: "Telegram Premium — 10 soniyada avtomatik, eng arzon narxda",
+    title: "Telegram Premium — ko‘proq imkoniyat",
     description: SITE.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Premiumtg — Telegram Premium O‘zbekistonda",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    site: `@${SITE.channelUsername}`,
-    title: "Premiumtg — Telegram Premium 10 soniyada avtomatik",
+    title: "Telegram Premium sotib olish | Premiumtg",
     description: SITE.description,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -99,25 +64,20 @@ export const metadata: Metadata = {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/premium.png",
   },
-  other: {
-    // AEO: AI qidiruv tizimlari uchun mashinaga o'qiladigan kontent indeksi
-    "ai-content-index": `${SITE.domain}/llms.txt`,
-  },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
-
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#fcfcff",
   width: "device-width",
   initialScale: 1,
 };
-
-/**
- * Sayt darajasidagi strukturali ma'lumotlar (JSON-LD) — har bir sahifada.
- * Faqat Organization va WebSite: bular butun saytga tegishli.
- * Product va FAQPage bosh sahifaning o'zida beriladi (app/page.tsx),
- * chunki ular aynan o'sha sahifadagi kontentni tavsiflaydi.
- */
-function StructuredData() {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -125,66 +85,46 @@ function StructuredData() {
         "@type": "Organization",
         "@id": `${SITE.domain}/#organization`,
         name: SITE.name,
-        alternateName: ["PremiumTG", "Premiumtg.uz", "Премиум ТГ"],
         url: SITE.domain,
         description: SITE.description,
+        logo: `${SITE.domain}/favicon.svg`,
         areaServed: { "@type": "Country", name: "Uzbekistan" },
-        knowsLanguage: ["uz", "ru", "en"],
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            contactType: "customer support",
-            url: SITE.supportUrl,
-            availableLanguage: ["uz", "ru"],
-          },
-          {
-            "@type": "ContactPoint",
-            contactType: "sales",
-            url: SITE.botUrl,
-            availableLanguage: ["uz", "ru"],
-          },
-        ],
-        sameAs: [SITE.supportUrl, SITE.channelUrl, SITE.botUrl],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          url: SITE.supportUrl,
+          availableLanguage: ["uz", "ru"],
+        },
+        sameAs: [SITE.botUrl, SITE.channelUrl],
       },
       {
         "@type": "WebSite",
         "@id": `${SITE.domain}/#website`,
-        url: SITE.domain,
         name: SITE.name,
-        description: SITE.description,
+        url: SITE.domain,
+        inLanguage: "uz",
         publisher: { "@id": `${SITE.domain}/#organization` },
-        inLanguage: ["uz", "ru", "en"],
       },
     ],
   };
-
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
-    />
-  );
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="uz">
+    <html lang="uz" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
-        />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <StructuredData />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(graph).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
-      <body className="min-h-screen antialiased">
+      <body>
+        <a className="skip-link" href="#main-content">
+          Asosiy mazmunga o‘tish
+        </a>
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
-        <Reveal />
       </body>
     </html>
   );

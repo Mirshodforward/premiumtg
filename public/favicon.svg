@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Neo-brutalist logotip: nol radius, qalin qora chegara,
-       uchta 45° burilgan kvadrat (opacity 0.2 / 0.5 / 1) -->
-  <rect width="64" height="64" fill="#ffffff"/>
-  <rect x="3" y="3" width="58" height="58" fill="none" stroke="#14171b" stroke-width="6"/>
-  <g fill="#4f86c6">
-    <rect x="12" y="26" width="12" height="12" transform="rotate(45 18 32)" opacity="0.2"/>
-    <rect x="20" y="26" width="12" height="12" transform="rotate(45 26 32)" opacity="0.5"/>
-    <rect x="28" y="26" width="12" height="12" transform="rotate(45 34 32)"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="premium" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5a8fea"/><stop offset=".55" stop-color="#8759d9"/><stop offset="1" stop-color="#b564d7"/></linearGradient></defs><rect width="48" height="48" rx="13" fill="url(#premium)"/><path d="m24 8 4.9 10.6 11.6 1-8.8 7.7 2.7 11.2L24 32.2l-10.4 6.3 2.7-11.2-8.8-7.7 11.6-1L24 8Z" fill="#fff"/></svg>

@@ -1,53 +1,38 @@
-# Premiumtg — Telegram Premium landing page
+# Premiumtg
 
-O‘zbekistonda Telegram Premium sotib olish uchun zamonaviy, SEO va AEO (ChatGPT/AI qidiruv) uchun optimallashtirilgan landing page. Next.js 15 (App Router) + TypeScript + Tailwind CSS.
-
-## Asosiy imkoniyatlar
-
-- ⚡ **10 soniyada avtomatik** yetkazish g‘oyasiga qurilgan dizayn
-- 💳 Click, Payme, Paynet, Uzcard, Humo to‘lov usullari
-- 🎁 Do‘st taklif qilish / bonus bo‘limi
-- 🔎 **SEO**: metadata, Open Graph (dinamik rasm), Twitter card, `sitemap.xml`, `robots.txt`, manifest
-- 🤖 **AEO**: JSON-LD strukturali ma’lumotlar (Organization, WebSite, Product, FAQPage) + AI botlarga ruxsat
-- 📱 To‘liq responsiv, dark dizayn, animatsiyalar
-
-## Ishga tushirish
+O‘zbekistonda Telegram Premium uchun landing, yangiliklar va to‘lov qo‘llanmalari. Next.js 16.3.5 App Router, React 19.3, TypeScript, Tailwind CSS 4.3.3. 57 maqola; eski 51 maqolaning URL’lari saqlangan.
 
 ```bash
-npm install
-npm run dev      # http://localhost:3000
-```
-
-Production build:
-
-```bash
+npm ci
+npm run dev
 npm run build
-npm start
+npm run start
+npm run typecheck
+npm test
 ```
 
-## Sozlash
+Node.js 20.9+ kerak. Brauzer testlari production build’dan keyin ishlaydi, 3100-portda serverni avtomatik ochadi. `playwright.config.ts` o‘rnatilgan Google Chrome’dan foydalanadi; boshqa muhitda `npx playwright install chrome` qiling yoki `channel` sozlamasini o‘zgartiring.
 
-Barcha narxlar, aloqa va sayt ma’lumotlari bitta joyda — [`lib/site.ts`](lib/site.ts):
+## Asosiy fayllar
 
-- `SITE.domain` — haqiqiy domeningizni yozing (SEO uchun muhim)
-- `SITE.supportUsername` / `supportUrl` — qo‘llab-quvvatlash Telegram username
-- `PREMIUM_PLANS` va `LOGIN_PLANS` — paketlar va narxlar
+- `components/Landing.tsx` — yangi landing va 3 tildagi interfeys.
+- `app/globals.css` — ranglar, responsiv maket va maqola tipografiyasi.
+- `lib/site.ts` — domen, narx va bot kontaktlari.
+- `lib/home-content.ts` — ko‘rinadigan FAQ va unga mos JSON-LD.
+- `lib/blog/posts/g-latest.ts` — 6 yangi maqola, manbalar va sanalar.
+- `lib/blog/posts/h-reviewed.ts` — mavjud URL’lardagi tuzatilgan maqolalar.
+- `docs/seo-aeo-reja.md` va `docs/kalit-sozlar.csv` — qidiruv iboralari va nashrdan keyingi reja.
 
-## Narxlar (joriy)
+## SEO va AEO
 
-| Paket | Muddat | Narx |
-| --- | --- | --- |
-| Premium | 3 oy | 172 000 so‘m |
-| Premium | 6 oy | 232 000 so‘m |
-| Premium | 12 oy | 422 000 so‘m |
-| Akkauntga kirib berish | 1 oy | 50 000 so‘m |
-| Akkauntga kirib berish | 1 yil | 300 000 so‘m |
+Sahifalar serverda tayyorlanadi; ko‘rinadigan maqola matni boshlang‘ich HTML’da bor. Canonical, sitemap, robots, RSS, maqola Open Graph rasmlari va mazmunga mos JSON-LD mavjud. To‘liq blog matnlari client bundle’ga qo‘shilmaydi. `llms.txt` qo‘shimcha indeks; Google reytingiga kafolat emas.
 
-## Struktura
+`GOOGLE_SITE_VERIFICATION` muhit o‘zgaruvchisi bo‘lsa, Search Console meta-verifikatsiyasi chiqariladi. Domen va Search Console hisobida amallar bu repozitoriy tomonidan bajarilmaydi.
 
-```
-app/        layout (SEO + JSON-LD), page, sitemap, robots, manifest, og-image
-components/ Header, Hero, Stats, Features, HowItWorks, Pricing, Payments,
-            Referral, FAQ, CTA, Footer, FloatingButton, icons
-lib/        site.ts (markaziy konfiguratsiya)
-```
+## Kontent chegaralari
+
+Narxlar saytdagi konfiguratsiya; bot jonli narxi va to‘lov menyusi bu koddan tekshirilmaydi. Saytda to‘lov olinmaydi, tugmalar mavjud Telegram botiga olib boradi. Tarifni saytda tanlash taqqoslash uchun; botda muddatni qayta tanlash kerak, maxsus deep-link protokoli tasdiqlanmagan.
+
+Click, Payme, Paynet va Uzum Bank bo‘yicha qo‘llanmalar joriy buyurtmadagi mavjud usulni tekshirishga yo‘naltiradi. Yangi maqolalar o‘zbekcha va ruscha; ingliz tili tanlansa, tarjima mavjud bo‘lmaganda bu haqda yozuv bilan o‘zbekcha matn ko‘rsatiladi. Hozircha alohida til URL’lari yo‘q.
+
+Eski maqolalarning hammasi qayta fakt-tekshiruvdan o‘tkazilmagan. Tekshirilgan materiallarda manbalar yoki yangilanish sanasi beriladi. [SEO reja](docs/seo-aeo-reja.md) qolgan ishlar va kalit so‘zlar bo‘yicha statistik cheklovlarni tushuntiradi.

@@ -21,7 +21,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setTheme(
-      document.documentElement.classList.contains(DARK_CLASS) ? "dark" : "light"
+      document.documentElement.classList.contains(DARK_CLASS)
+        ? "dark"
+        : "light",
     );
   }, []);
 
@@ -36,7 +38,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       }
       document
         .querySelector('meta[name="theme-color"]')
-        ?.setAttribute("content", next === "dark" ? "#0d1014" : "#ffffff");
+        ?.setAttribute("content", next === "dark" ? "#0e0f20" : "#fcfcff");
       return next;
     });
   }, []);

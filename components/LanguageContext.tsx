@@ -25,15 +25,28 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("uz");
 
   useEffect(() => {
-    const saved = localStorage.getItem("lang") as Lang | null;
+    let saved: Lang | null = null;
+    try {
+      saved = localStorage.getItem("lang") as Lang | null;
+    } catch {
+      /* Storage may be unavailable. */
+    }
     if (saved && ["uz", "ru", "en"].includes(saved)) {
       setLangState(saved);
     }
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   function setLang(l: Lang) {
     setLangState(l);
-    localStorage.setItem("lang", l);
+    try {
+      localStorage.setItem("lang", l);
+    } catch {
+      /* Storage may be unavailable. */
+    }
   }
 
   return (

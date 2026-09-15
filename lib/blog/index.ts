@@ -1,3 +1,6 @@
+import { POSTS_LATEST } from "./posts/g-latest";
+import { POST_UPDATES } from "./posts/h-reviewed";
+import type { BlogSummary } from "./types";
 import type { Lang } from "@/lib/translations";
 import { POSTS_ASOSLAR } from "./posts/a-asoslar";
 import { POSTS_XARID } from "./posts/b-xarid";
@@ -20,13 +23,16 @@ export { CATEGORIES, getCategory, tx };
 
 /** Barcha maqolalar — sana bo'yicha yangidan eskiga */
 export const BLOG_POSTS: BlogPost[] = [
+  ...POSTS_LATEST,
   ...POSTS_ASOSLAR,
   ...POSTS_XARID,
   ...POSTS_XAVFSIZLIK,
   ...POSTS_IMKONIYATLAR,
   ...POSTS_STARS,
   ...POSTS_AMALIY,
-].sort((a, b) => (a.date < b.date ? 1 : -1));
+]
+  .map((p) => ({ ...p, ...(POST_UPDATES[p.slug] ?? {}) }))
+  .sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 
 const BY_SLUG = new Map(BLOG_POSTS.map((p) => [p.slug, p]));
 
@@ -85,19 +91,7 @@ export function getLastModified(post: BlogPost): Date {
   return new Date(post.updated ?? post.date);
 }
 
-const LOCALES: Record<Lang, string> = {
-  uz: "uz-UZ",
-  ru: "ru-RU",
-  en: "en-US",
-};
-
-export function formatDate(dateStr: string, lang: Lang): string {
-  return new Date(dateStr).toLocaleDateString(LOCALES[lang] ?? "uz-UZ", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+export { formatDate } from "@/lib/date";
 
 /** Ichki qidiruv — sarlavha, izoh va kalit so'zlar bo'yicha */
 export function searchPosts(query: string, lang: Lang): BlogPost[] {
@@ -115,4 +109,9 @@ export function searchPosts(query: string, lang: Lang): BlogPost[] {
       .toLowerCase();
     return haystack.includes(q);
   });
+}
+
+export function summarizePost(post: BlogPost): BlogSummary {
+  const { content, related, sources, ...summary } = post;
+  return { ...summary, readMin: readingMinutes(content.uz) };
 }

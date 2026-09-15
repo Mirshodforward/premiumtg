@@ -20,9 +20,13 @@ export type CategoryId =
   | "xavfsizlik"
   | "imkoniyatlar"
   | "stars"
-  | "amaliy";
+  | "amaliy"
+  | "yangiliklar";
 
 export type BlogPost = {
+  sources?: { title: string; url: string }[];
+  reviewed?: string;
+  eventDate?: string;
   /** URL segmenti — kalit so'zdan yasalgan, o'zgartirilmaydi */
   slug: string;
   /** Nashr sanasi (ISO) */
@@ -55,6 +59,15 @@ export const CATEGORIES: {
   label: LocaleText;
   description: LocaleText;
 }[] = [
+  {
+    id: "yangiliklar",
+    label: { uz: "Yangiliklar", ru: "Новости", en: "News" },
+    description: {
+      uz: "Telegram yangilanishlari — rasmiy manbalar bilan",
+      ru: "Обновления Telegram с официальными источниками",
+      en: "Telegram updates with official sources",
+    },
+  },
   {
     id: "asoslar",
     label: { uz: "Asoslar", ru: "Основы", en: "Basics" },
@@ -93,7 +106,11 @@ export const CATEGORIES: {
   },
   {
     id: "stars",
-    label: { uz: "Stars va sovg'alar", ru: "Stars и подарки", en: "Stars & gifts" },
+    label: {
+      uz: "Stars va sovg'alar",
+      ru: "Stars и подарки",
+      en: "Stars & gifts",
+    },
     description: {
       uz: "Telegram Stars, Gifts, NFT sovg'alar, Fragment va TON",
       ru: "Telegram Stars, Gifts, NFT-подарки, Fragment и TON",
@@ -117,6 +134,13 @@ export function getCategory(id: CategoryId) {
 
 /** Matn hajmidan o'qish vaqtini hisoblaydi (≈200 so'z/daqiqa) */
 export function readingMinutes(markdown: string): number {
-  const words = markdown.replace(/[#*>|`\-]/g, " ").split(/\s+/).filter(Boolean).length;
+  const words = markdown
+    .replace(/[#*>|`\-]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
   return Math.max(2, Math.round(words / 200));
 }
+
+export type BlogSummary = Omit<BlogPost, "content" | "related" | "sources"> & {
+  readMin: number;
+};

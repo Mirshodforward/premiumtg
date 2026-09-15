@@ -21,7 +21,7 @@ export function GET() {
       <guid isPermaLink="true">${url}</guid>
       <description>${esc(post.excerpt.uz)}</description>
       <category>${esc(getCategory(post.category).label.uz)}</category>
-      <pubDate>${getLastModified(post).toUTCString()}</pubDate>
+      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     </item>`;
   }).join("\n");
 
@@ -33,7 +33,7 @@ export function GET() {
     <atom:link href="${SITE.domain}/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Telegram Premium bo'yicha savol-javob maqolalari: narxlar, to'lov, xavfsizlik, imkoniyatlar va Stars.</description>
     <language>uz</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${new Date(Math.max(...BLOG_POSTS.map((p) => getLastModified(p).getTime()))).toUTCString()}</lastBuildDate>
 ${items}
   </channel>
 </rss>`;

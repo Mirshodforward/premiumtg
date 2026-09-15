@@ -9,4 +9,4 @@ export const DARK_CLASS = "dl-editorial-dark";
  * localStorage yoki tizim sozlamasidan temani o'qib, darhol klass qo'yadi,
  * shu bilan birga `.js` klassini qo'shadi (progressive enhancement uchun).
  */
-export const themeInitScript = `(function(){try{var s=localStorage.getItem("${THEME_STORAGE_KEY}");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d){document.documentElement.classList.add("${DARK_CLASS}");var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#0d1014")}}catch(e){}document.documentElement.classList.add("js")})();`;
+export const themeInitScript = `(function(){try{var s=localStorage.getItem("${THEME_STORAGE_KEY}");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d){document.documentElement.classList.add("${DARK_CLASS}");var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#0e0f20")}}catch(e){}document.documentElement.classList.add("js")})();`;

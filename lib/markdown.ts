@@ -31,11 +31,18 @@ function inline(raw: string): string {
   // **qalin**
   s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   // [matn](havola) — tashqi havolalarga rel/target qo'shiladi
-  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_m, text: string, href: string) => {
-    const external = /^https?:\/\//.test(href);
-    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
-    return `<a href="${href}"${attrs}>${text}</a>`;
-  });
+  s = s.replace(
+    /\[([^\]]+)\]\(([^)\s]+)\)/g,
+    (_m, text: string, href: string) => {
+      if (!/^(https?:\/\/|\/(?!\/)|#)/i.test(href)) return text;
+      const safeHref = href.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+      const external = /^https?:\/\//i.test(href);
+      const attrs = external
+        ? ' target="_blank" rel="noopener noreferrer"'
+        : "";
+      return `<a href="${safeHref}"${attrs}>${text}</a>`;
+    },
+  );
 
   return s;
 }
@@ -88,7 +95,11 @@ export function renderMarkdown(md: string): { html: string; toc: TocItem[] } {
     }
 
     // Jadval
-    if (isTableLine(line) && i + 1 < lines.length && isTableDivider(lines[i + 1])) {
+    if (
+      isTableLine(line) &&
+      i + 1 < lines.length &&
+      isTableDivider(lines[i + 1])
+    ) {
       const head = renderTableRow(line, "th");
       i += 2;
       const body: string[] = [];
@@ -98,8 +109,8 @@ export function renderMarkdown(md: string): { html: string; toc: TocItem[] } {
       }
       out.push(
         `<div class="table-wrap"><table><thead>${head}</thead><tbody>${body.join(
-          ""
-        )}</tbody></table></div>`
+          "",
+        )}</tbody></table></div>`,
       );
       continue;
     }
@@ -152,6 +163,10 @@ export function renderMarkdown(md: string): { html: string; toc: TocItem[] } {
       i++;
     }
     if (para.length) out.push(`<p>${inline(para.join(" "))}</p>`);
+    else {
+      out.push(`<p>${inline(lines[i])}</p>`);
+      i++;
+    }
   }
 
   return { html: out.join("\n"), toc };

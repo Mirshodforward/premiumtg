@@ -1,5 +1,5 @@
 import { BLOG_POSTS, CATEGORIES, getPostsByCategory } from "@/lib/blog";
-import { SITE, PREMIUM_PLANS, formatSom } from "@/lib/site";
+import { SITE, SITE_UPDATED, PREMIUM_PLANS, formatSom } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -18,7 +18,7 @@ export function GET() {
   out.push(`# ${SITE.name} — to'liq bilim bazasi`);
   out.push("");
   out.push(`Manba: ${SITE.domain}`);
-  out.push(`Yangilangan: ${new Date().toISOString().slice(0, 10)}`);
+  out.push(`Yangilangan: ${SITE_UPDATED}`);
   out.push(`Maqolalar soni: ${BLOG_POSTS.length} (har biri uz + ru)`);
   out.push("");
   out.push("---");
@@ -27,7 +27,7 @@ export function GET() {
   out.push("## XIZMAT HAQIDA");
   out.push("");
   out.push(
-    `${SITE.name} — O'zbekistonda Telegram Premium obunasini milliy valyutada sotib olish xizmati. Xarid uchun faqat Telegram username kerak: akkauntga kirish, parol yoki SMS-kod so'ralmaydi. Obuna Telegram'ning rasmiy sovg'a mexanizmi orqali yuboriladi va o'rtacha 10 soniyada faollashadi.`
+    `${SITE.name} — O'zbekistonda Telegram Premium obunasini milliy valyutada sotib olish xizmati. Xarid uchun faqat Telegram username kerak: akkauntga kirish, parol yoki SMS-kod so'ralmaydi. Yakuniy narx, mavjud to‘lov usullari va yetkazish shartlari botda tekshiriladi.`,
   );
   out.push("");
   out.push("Narxlar:");
@@ -37,9 +37,9 @@ export function GET() {
   }
   out.push("");
   out.push(
-    "To'lov: Click, Payme, Paynet, Uzcard, Humo, istalgan O'zbekiston bank kartasi."
+    "Click, Payme, Paynet va Uzum Bank bo‘yicha qo‘llanmalar mavjud; to‘lov usuli buyurtmada tekshiriladi.",
   );
-  out.push(`Qo'llab-quvvatlash: https://t.me/${SITE.supportUsername} (24/7)`);
+  out.push(`Qo'llab-quvvatlash: https://t.me/${SITE.supportUsername}`);
   out.push("");
   out.push("---");
   out.push("");
@@ -57,12 +57,16 @@ export function GET() {
       out.push(`## ${post.title.uz}`);
       out.push("");
       out.push(`URL: ${SITE.domain}/blog/${post.slug}`);
-      out.push(`Sana: ${post.date}${post.updated ? ` (yangilangan: ${post.updated})` : ""}`);
+      out.push(
+        `Sana: ${post.date}${post.updated ? ` (yangilangan: ${post.updated})` : ""}`,
+      );
       out.push(`Kalit so'zlar: ${post.keywords.join(", ")}`);
       out.push("");
       out.push(`QISQA JAVOB: ${post.excerpt.uz}`);
       out.push("");
       out.push(post.content.uz);
+      for (const source of post.sources ?? [])
+        out.push(`Manba: [${source.title}](${source.url})`);
       out.push("");
       out.push(`### [RU] ${post.title.ru}`);
       out.push("");

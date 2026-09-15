@@ -27,7 +27,11 @@ export const t = {
       desc: "Premiumtg — Telegram Premium obunasini eng arzon narxda sotib oling. To'lovdan so'ng obuna avtomatik 10 soniyada faollashadi. Click, Payme, Paynet, Uzcard, Humo — istalgan bank kartasidan to'lang.",
       btnPricing: "Narxlarni ko'rish",
       btnBot: "Botdan sotib olish",
-      trust: ["Akkauntga kirish shart emas", "Faqat username yetarli", "10 soniyada faollashadi"],
+      trust: [
+        "Akkauntga kirish shart emas",
+        "Faqat username yetarli",
+        "10 soniyada faollashadi",
+      ],
     },
     cta: {
       title: "Telegram Premiumni hozir ulang",
@@ -36,12 +40,14 @@ export const t = {
       btnBot: "Botdan sotib olish",
     },
     footer: {
-      tagline: "O'zbekistonda Telegram Premium sotib olishning eng tez, arzon va ishonchli yo'li. To'lovdan so'ng 10 soniyada avtomatik faollashadi.",
+      tagline:
+        "O'zbekistonda Telegram Premium sotib olishning eng tez, arzon va ishonchli yo'li. To'lovdan so'ng 10 soniyada avtomatik faollashadi.",
       sections: "Bo'limlar",
       contact: "Bog'lanish",
       rights: "Barcha huquqlar himoyalangan.",
       oferta: "Ommaviy oferta",
-      trademark: "Telegram va Telegram Premium — Telegram FZ-LLC tovar belgilari. Premiumtg mustaqil sotuvchi xizmatidir.",
+      trademark:
+        "Telegram va Telegram Premium — Telegram FZ-LLC tovar belgilari. Premiumtg mustaqil sotuvchi xizmatidir.",
     },
     blog: {
       title: "Blog",
@@ -86,12 +92,14 @@ export const t = {
       btnBot: "Купить через бот",
     },
     footer: {
-      tagline: "Самый быстрый, дешёвый и надёжный способ купить Telegram Premium в Узбекистане. Активация за 10 секунд после оплаты.",
+      tagline:
+        "Самый быстрый, дешёвый и надёжный способ купить Telegram Premium в Узбекистане. Активация за 10 секунд после оплаты.",
       sections: "Разделы",
       contact: "Контакты",
       rights: "Все права защищены.",
       oferta: "Публичная оферта",
-      trademark: "Telegram и Telegram Premium — товарные знаки Telegram FZ-LLC. Premiumtg — независимый продавец.",
+      trademark:
+        "Telegram и Telegram Premium — товарные знаки Telegram FZ-LLC. Premiumtg — независимый продавец.",
     },
     blog: {
       title: "Блог",
@@ -127,7 +135,11 @@ export const t = {
       desc: "Premiumtg — buy Telegram Premium at the lowest price. After payment, your subscription activates automatically in 10 seconds. Click, Payme, Paynet, Uzcard, Humo — any bank card accepted.",
       btnPricing: "View Pricing",
       btnBot: "Buy via Bot",
-      trust: ["No account login needed", "Username only", "Activates in 10 seconds"],
+      trust: [
+        "No account login needed",
+        "Username only",
+        "Activates in 10 seconds",
+      ],
     },
     cta: {
       title: "Get Telegram Premium Right Now",
@@ -136,12 +148,14 @@ export const t = {
       btnBot: "Buy via Bot",
     },
     footer: {
-      tagline: "The fastest, cheapest and most reliable way to buy Telegram Premium in Uzbekistan. Activates in 10 seconds after payment.",
+      tagline:
+        "The fastest, cheapest and most reliable way to buy Telegram Premium in Uzbekistan. Activates in 10 seconds after payment.",
       sections: "Sections",
       contact: "Contact",
       rights: "All rights reserved.",
       oferta: "Public Offer",
-      trademark: "Telegram and Telegram Premium are trademarks of Telegram FZ-LLC. Premiumtg is an independent seller.",
+      trademark:
+        "Telegram and Telegram Premium are trademarks of Telegram FZ-LLC. Premiumtg is an independent seller.",
     },
     blog: {
       title: "Blog",
