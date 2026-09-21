@@ -4,6 +4,7 @@ import { SITE } from "@/lib/site";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { themeInitScript } from "@/lib/theme";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
@@ -125,6 +126,7 @@ export default function RootLayout({
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
