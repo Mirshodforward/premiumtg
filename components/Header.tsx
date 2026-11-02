@@ -3,14 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "./LanguageContext";
-import { useTheme } from "./ThemeContext";
 import { LANGS, type Lang } from "@/lib/translations";
 import { SITE } from "@/lib/site";
-import { ArrowUpRightIcon, MoonIcon, SunIcon } from "./icons";
+import { ArrowUpRightIcon } from "./icons";
 
 export default function Header() {
   const { lang, setLang, tr } = useLang();
-  const { theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
@@ -71,13 +69,6 @@ export default function Header() {
               ))}
             </select>
           </label>
-          <button
-            className="icon-button theme-button"
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Yorug‘ rejim" : "Qorong‘i rejim"}
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
           <a
             className="button button-dark header-buy"
             href={SITE.botUrl}

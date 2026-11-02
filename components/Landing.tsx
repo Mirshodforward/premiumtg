@@ -291,64 +291,20 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
   return (
     <>
       <section className="hero-section">
-        <div className="container-wide hero-grid">
-          <div className="hero-copy">
-            <span className="pill">
-              <span className="status-dot" />
-              {c.badge}
-            </span>
-            <h1>
-              {c.title[0]}
-              <br />
-              <span>
-                {c.title[1]}
-                <br />
-                {c.title[2]}
-              </span>
-            </h1>
-            <p className="hero-description">{c.desc}</p>
-            <div className="button-row">
-              <a
-                className="button button-dark"
-                href={SITE.botUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TelegramIcon />
-                {c.buy}
-                <ArrowUpRightIcon />
-              </a>
-              <a href="#narxlar" className="button button-light">
-                {c.pricing}
-                <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-            <ul className="hero-trust">
-              {c.trust.map((s) => (
-                <li key={s}>
-                  <CheckIcon />
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="premium-scene" aria-hidden="true">
-            <div className="scene-glow" />
-            <div className="scene-orbit orbit-one">
-              <i />
-            </div>
-            <div className="scene-orbit orbit-two">
-              <i />
-            </div>
+        <div className="container-wide hero-inner">
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-halo" />
+            <div className="hero-ring ring-one" />
+            <div className="hero-ring ring-two" />
             <span className="scene-spark spark-one">✦</span>
             <span className="scene-spark spark-two">✧</span>
             <span className="scene-spark spark-three">✦</span>
             <img
-              className="scene-star"
+              className="hero-star"
               src="/brand/star.webp"
               alt=""
-              width={480}
-              height={480}
+              width={280}
+              height={280}
               fetchPriority="high"
             />
             <div className="floating-note note-files">
@@ -378,9 +334,44 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
                 <small>{c.limit}</small>
               </div>
             </div>
-            <span className="scene-caption">
-              TELEGRAM. WITH A LITTLE EXTRA.
+          </div>
+          <div className="hero-copy">
+            <span className="pill">
+              <span className="status-dot" />
+              {c.badge}
             </span>
+            <h1>
+              {c.title[0]}
+              <br />
+              <span>
+                {c.title[1]} {c.title[2]}
+              </span>
+            </h1>
+            <p className="hero-description">{c.desc}</p>
+            <div className="button-row">
+              <a
+                className="button button-dark"
+                href={SITE.botUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TelegramIcon />
+                {c.buy}
+                <ArrowUpRightIcon />
+              </a>
+              <a href="#narxlar" className="button button-light">
+                {c.pricing}
+                <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <ul className="hero-trust">
+              {c.trust.map((s) => (
+                <li key={s}>
+                  <CheckIcon />
+                  {s}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -578,7 +569,7 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
             {c.steps.map((s, i) => (
               <article key={s}>
                 <span className="step-number">
-                  0{i + 1}
+                  <b>0{i + 1}</b>
                   <span aria-hidden="true">↗</span>
                 </span>
                 <h3>{s}</h3>

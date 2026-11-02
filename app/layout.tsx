@@ -1,20 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Unbounded } from "next/font/google";
+import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 import { LanguageProvider } from "@/components/LanguageContext";
-import { ThemeProvider } from "@/components/ThemeContext";
-import { themeInitScript } from "@/lib/theme";
 
-// Sarlavhalar — Unbounded, matn — Manrope; ikkalasi ham o‘zbek lotini va kirillni qo‘llaydi
-const manrope = Manrope({
+// Yumaloq shrift — logodagi yulduzning yumaloq uchlariga mos; o‘zbek lotini va kirill
+const nunito = Nunito({
   subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-manrope",
-});
-const unbounded = Unbounded({
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-unbounded",
+  variable: "--font-nunito",
 });
 
 export const metadata: Metadata = {
@@ -78,7 +72,7 @@ export const metadata: Metadata = {
     : undefined,
 };
 export const viewport: Viewport = {
-  themeColor: "#f6f7ff",
+  themeColor: "#010524",
   width: "device-width",
   initialScale: 1,
 };
@@ -117,13 +111,8 @@ export default function RootLayout({
     ],
   };
   return (
-    <html
-      lang="uz"
-      className={`${manrope.variable} ${unbounded.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="uz" className={nunito.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -135,9 +124,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Asosiy mazmunga o‘tish
         </a>
-        <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
     </html>

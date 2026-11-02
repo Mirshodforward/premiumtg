@@ -76,7 +76,7 @@ test("all sitemap pages have server-rendered content and correct canonical URLs"
   }
 });
 
-test("plans, FAQ, theme and language work without console errors", async ({
+test("plans, FAQ and language work without console errors", async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -105,14 +105,11 @@ test("plans, FAQ, theme and language work without console errors", async ({
     "open",
     "",
   );
-  await page.locator(".theme-button").click();
-  await expect(page.locator("html")).toHaveClass(/dl-editorial-dark/);
   await page.locator("select").selectOption("ru");
   await expect(page.locator("html")).toHaveAttribute("lang", "ru");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Новые");
   await page.reload();
   await expect(page.locator("select")).toHaveValue("ru");
-  await expect(page.locator("html")).toHaveClass(/dl-editorial-dark/);
   expect(errors).toEqual([]);
 });
 
@@ -166,33 +163,27 @@ for (const width of [320, 390, 768, 1440]) {
   });
 }
 
-test("main pages pass WCAG automated checks in light and dark", async ({
-  page,
-}) => {
+test("main pages pass WCAG automated checks", async ({ page }) => {
   for (const path of [
     "/",
     "/blog",
     "/blog/telegram-premium-uzum-bank-orqali",
   ]) {
     await page.goto(path);
-    for (const dark of [false, true]) {
-      if (dark) await page.locator(".theme-button").click();
-      await page.evaluate(() =>
-        Promise.all(
-          document.getAnimations().map((animation) => animation.finished),
-        ),
-      );
-      const results = await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze();
-      expect(
-        results.violations.map((v) => ({
-          id: v.id,
-          nodes: v.nodes.map((n) => n.target),
-        })),
-        `${path} dark=${dark}`,
-      ).toEqual([]);
-      if (dark) await page.locator(".theme-button").click();
-    }
+    await page.evaluate(() =>
+      Promise.all(
+        document.getAnimations().map((animation) => animation.finished),
+      ),
+    );
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .analyze();
+    expect(
+      results.violations.map((v) => ({
+        id: v.id,
+        nodes: v.nodes.map((n) => n.target),
+      })),
+      path,
+    ).toEqual([]);
   }
 });
