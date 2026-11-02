@@ -1,2 +1,3 @@
-# Avtomatik yasalgan (scripts/gen-auto-posts-index.mjs)
+# Avtomatik yasalgan (scripts/gen-auto-posts-index.mjs va avtoblogyoz)
 lib/blog/posts/auto-index.ts
+lib/blog/posts/auto/

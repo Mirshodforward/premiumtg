@@ -16,7 +16,8 @@ test("markdown safely handles a lone table row and rejects script URLs", () => {
 
 test("article slugs, sources and internal links resolve", () => {
   expect(new Set(BLOG_POSTS.map((p) => p.slug)).size).toBe(BLOG_POSTS.length);
-  expect(BLOG_POSTS.length).toBe(57);
+  // avtoblogyoz maqola qo‘shib boradi: son o‘sadi, kamaymasligi kerak
+  expect(BLOG_POSTS.length).toBeGreaterThanOrEqual(57);
   for (const post of BLOG_POSTS) {
     for (const related of post.related)
       expect(getBlogPost(related), `${post.slug}: ${related}`).toBeTruthy();
@@ -43,7 +44,7 @@ test("all sitemap pages have server-rendered content and correct canonical URLs"
   const sitemap = await response.text();
   expect(sitemap).not.toContain("/#");
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  expect(urls.length).toBe(60);
+  expect(urls.length).toBe(BLOG_POSTS.length + 3);
   for (const url of urls) {
     const page = await request.get(url.replace(SITE.domain, "") || "/");
     expect(page.status(), url).toBe(200);
@@ -118,14 +119,16 @@ test("blog filters, search, empty state and article navigation work", async ({
 }) => {
   await page.goto("/blog");
   await page.getByRole("button", { name: "Yangiliklar", exact: true }).click();
-  await expect(page.locator(".article-card")).toHaveCount(3);
+  await expect(page.locator(".article-card")).toHaveCount(
+    BLOG_POSTS.filter((p) => p.category === "yangiliklar").length,
+  );
   await page.getByRole("button", { name: "Barchasi", exact: true }).click();
   await page.getByRole("searchbox").fill("uzum bank");
   expect(await page.locator(".article-card").count()).toBeGreaterThan(0);
   await page.getByRole("searchbox").fill("no-such-article-xyz");
   await expect(page.locator(".empty-state")).toBeVisible();
   await page.getByRole("button", { name: "Filtrlarni tozalash" }).click();
-  await expect(page.locator(".article-card")).toHaveCount(57);
+  await expect(page.locator(".article-card")).toHaveCount(BLOG_POSTS.length);
   await page.goto("/blog/telegram-premium-uzum-bank-orqali");
   await expect(page.locator(".article-sources")).toBeVisible();
   const anchor = page.locator(".article-toc a").first();
