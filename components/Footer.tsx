@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useLang } from "./LanguageContext";
 import { SITE } from "@/lib/site";
-import { StarIcon, ArrowUpRightIcon } from "./icons";
+import { ArrowUpRightIcon } from "./icons";
 export default function Footer() {
   const { lang, tr } = useLang();
   const words =
@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="brand">
               <span className="brand-mark">
-                <StarIcon />
+                <img src="/brand/logo-mark.png" alt="" width={32} height={32} />
               </span>
               premium<span className="brand-light">tg</span>.
             </Link>

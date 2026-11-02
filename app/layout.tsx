@@ -61,10 +61,7 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: "/premium.png",
-  },
+  // Ikonkalar fayl konventsiyasidan: app/favicon.ico, app/icon.png, app/apple-icon.png
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
@@ -88,7 +85,7 @@ export default function RootLayout({
         name: SITE.name,
         url: SITE.domain,
         description: SITE.description,
-        logo: `${SITE.domain}/favicon.svg`,
+        logo: `${SITE.domain}/icons/icon-512.png`,
         areaServed: { "@type": "Country", name: "Uzbekistan" },
         contactPoint: {
           "@type": "ContactPoint",

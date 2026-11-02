@@ -6,7 +6,7 @@ import { useLang } from "./LanguageContext";
 import { useTheme } from "./ThemeContext";
 import { LANGS, type Lang } from "@/lib/translations";
 import { SITE } from "@/lib/site";
-import { ArrowUpRightIcon, MoonIcon, StarIcon, SunIcon } from "./icons";
+import { ArrowUpRightIcon, MoonIcon, SunIcon } from "./icons";
 
 export default function Header() {
   const { lang, setLang, tr } = useLang();
@@ -41,7 +41,7 @@ export default function Header() {
           aria-label="Premiumtg — bosh sahifa"
         >
           <span className="brand-mark">
-            <StarIcon />
+            <img src="/brand/logo-mark.png" alt="" width={32} height={32} />
           </span>
           premium<span className="brand-light">tg</span>
           <span className="brand-dot">.</span>
