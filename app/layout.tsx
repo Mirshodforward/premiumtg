@@ -1,10 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import { Manrope, Unbounded } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { themeInitScript } from "@/lib/theme";
+
+// Sarlavhalar — Unbounded, matn — Manrope; ikkalasi ham o‘zbek lotini va kirillni qo‘llaydi
+const manrope = Manrope({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-manrope",
+});
+const unbounded = Unbounded({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-unbounded",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
@@ -67,7 +78,7 @@ export const metadata: Metadata = {
     : undefined,
 };
 export const viewport: Viewport = {
-  themeColor: "#fcfcff",
+  themeColor: "#f6f7ff",
   width: "device-width",
   initialScale: 1,
 };
@@ -85,7 +96,7 @@ export default function RootLayout({
         name: SITE.name,
         url: SITE.domain,
         description: SITE.description,
-        logo: `${SITE.domain}/icons/icon-512.png`,
+        logo: `${SITE.domain}/brand/star-512.png`,
         areaServed: { "@type": "Country", name: "Uzbekistan" },
         contactPoint: {
           "@type": "ContactPoint",
@@ -106,7 +117,11 @@ export default function RootLayout({
     ],
   };
   return (
-    <html lang="uz" suppressHydrationWarning>
+    <html
+      lang="uz"
+      className={`${manrope.variable} ${unbounded.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script

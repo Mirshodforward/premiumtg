@@ -13,7 +13,6 @@ import {
   CardIcon,
   CheckIcon,
   GiftIcon,
-  PremiumStar,
   StarIcon,
   TelegramIcon,
 } from "./icons";
@@ -333,42 +332,25 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
               ))}
             </ul>
           </div>
-          <div className="premium-scene" aria-label="Telegram Premium">
-            <div className="scene-orbit orbit-one" />
-            <div className="scene-orbit orbit-two" />
-            <span className="scene-spark spark-one">✧</span>
-            <span className="scene-spark spark-two">✦</span>
-            <span className="scene-spark spark-three" aria-hidden="true">
-              ✧
-            </span>
-            <div className="premium-window">
-              <div className="premium-appbar">
-                <span>
-                  <TelegramIcon />
-                  Telegram
-                </span>
-                <span aria-hidden="true">•••</span>
-              </div>
-              <div className="premium-emblem">
-                <PremiumStar idPrefix="hero-premium" aria-hidden="true" />
-              </div>
-              <h2>Telegram Premium</h2>
-              <p className="premium-window-caption">{c.cardDesc}</p>
-              <div className="premium-window-perks">
-                <span>
-                  <StarIcon />
-                  Premium
-                </span>
-                <span>
-                  <BookIcon />4 GB
-                </span>
-                <span>
-                  <BoltIcon />
-                  2×
-                </span>
-              </div>
-              <div className="premium-window-line" aria-hidden="true" />
+          <div className="premium-scene" aria-hidden="true">
+            <div className="scene-glow" />
+            <div className="scene-orbit orbit-one">
+              <i />
             </div>
+            <div className="scene-orbit orbit-two">
+              <i />
+            </div>
+            <span className="scene-spark spark-one">✦</span>
+            <span className="scene-spark spark-two">✧</span>
+            <span className="scene-spark spark-three">✦</span>
+            <img
+              className="scene-star"
+              src="/brand/star.webp"
+              alt=""
+              width={480}
+              height={480}
+              fetchPriority="high"
+            />
             <div className="floating-note note-files">
               <span className="note-icon">
                 <BookIcon />
@@ -386,7 +368,15 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
                 <strong>{c.active}</strong>
                 <small>Telegram Premium</small>
               </div>
-              <StarIcon className="note-star" />
+            </div>
+            <div className="floating-note note-limit">
+              <span className="note-icon">
+                <BoltIcon />
+              </span>
+              <div>
+                <strong>2×</strong>
+                <small>{c.limit}</small>
+              </div>
             </div>
             <span className="scene-caption">
               TELEGRAM. WITH A LITTLE EXTRA.
@@ -463,7 +453,13 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
                   ) : i === 2 ? (
                     <div className="emoji-cluster">
                       <span>✦</span>
-                      <StarIcon />
+                      <img
+                        src="/brand/star-512.png"
+                        alt=""
+                        width={128}
+                        height={128}
+                        loading="lazy"
+                      />
                       <span>✧</span>
                     </div>
                   ) : (
@@ -717,11 +713,16 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
                 <ArrowUpRightIcon />
               </a>
             </div>
-            <PremiumStar
-              idPrefix="cta-premium"
-              className="cta-star"
-              aria-hidden="true"
-            />
+            <div className="cta-visual" aria-hidden="true">
+              <img
+                className="cta-star"
+                src="/brand/star.webp"
+                alt=""
+                width={320}
+                height={320}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>

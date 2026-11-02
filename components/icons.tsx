@@ -251,30 +251,6 @@ export const BookIcon = (p: P) => (
   </svg>
 );
 
-/**
- * Logotip — rasm fayli yo'q, CSS bilan yasalgan (darslink-dizayn.md, 7.8):
- * uchta 45° burilgan kvadrat, opacity 0.2 / 0.5 / 1, gorizontal siljitilgan.
- */
-export const LogoMark = ({ className = "" }: { className?: string }) => (
-  <span
-    className={`relative inline-block h-5 w-[22px] shrink-0 ${className}`}
-    aria-hidden="true"
-  >
-    <span
-      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-20"
-      style={{ left: 0 }}
-    />
-    <span
-      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current opacity-50"
-      style={{ left: "4.2px" }}
-    />
-    <span
-      className="absolute top-1/2 block h-2.5 w-2.5 -translate-y-1/2 rotate-45 bg-current"
-      style={{ left: "8.4px" }}
-    />
-  </span>
-);
-
 export const RocketIcon = (p: P) => (
   <svg
     viewBox="0 0 24 24"
@@ -290,74 +266,3 @@ export const RocketIcon = (p: P) => (
     <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
   </svg>
 );
-
-/** A lightweight dimensional Premium star; unique gradient ids allow reuse. */
-export const PremiumStar = ({
-  idPrefix,
-  ...props
-}: P & { idPrefix: string }) => {
-  const shape =
-    "M113 24Q120 8 127 24L150 75Q152 80 158 81L211 87Q231 90 216 105L176 141Q172 144 174 151L187 205Q192 224 174 214L125 186Q120 183 115 186L66 214Q48 224 53 205L66 151Q68 144 64 141L24 105Q9 90 29 87L82 81Q88 80 90 75Z";
-  return (
-    <svg viewBox="0 0 240 240" fill="none" {...props}>
-      <defs>
-        <linearGradient
-          id={`${idPrefix}-face`}
-          x1="42"
-          y1="46"
-          x2="203"
-          y2="196"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#b4e1ff" />
-          <stop offset=".28" stopColor="#9294ff" />
-          <stop offset=".58" stopColor="#9a6ee8" />
-          <stop offset=".82" stopColor="#bf83ef" />
-          <stop offset="1" stopColor="#e5b1fa" />
-        </linearGradient>
-        <linearGradient
-          id={`${idPrefix}-edge`}
-          x1="30"
-          y1="45"
-          x2="176"
-          y2="231"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#749de7" />
-          <stop offset=".5" stopColor="#5141a7" />
-          <stop offset="1" stopColor="#a16dcf" />
-        </linearGradient>
-        <linearGradient
-          id={`${idPrefix}-shine`}
-          x1="60"
-          y1="37"
-          x2="165"
-          y2="194"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#fff" stopOpacity=".9" />
-          <stop offset=".5" stopColor="#fff" stopOpacity=".12" />
-          <stop offset="1" stopColor="#fff" stopOpacity=".4" />
-        </linearGradient>
-      </defs>
-      <path
-        d={shape}
-        transform="translate(0 7)"
-        fill={`url(#${idPrefix}-edge)`}
-      />
-      <path
-        d={shape}
-        fill={`url(#${idPrefix}-face)`}
-        stroke={`url(#${idPrefix}-shine)`}
-        strokeWidth="2"
-      />
-      <path
-        d="M120 28 102 94 30 98 89 123 65 203 120 156 177 203 153 123 212 98 140 94Z"
-        fill={`url(#${idPrefix}-shine)`}
-        opacity=".38"
-      />
-      <path d="m120 28-18 66 18 62 20-62Z" fill="#fff" opacity=".14" />
-      <path d="m178 55 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#fff" />
-    </svg>
-  );
-};

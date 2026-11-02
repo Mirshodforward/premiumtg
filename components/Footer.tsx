@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="brand">
               <span className="brand-mark">
-                <img src="/brand/logo-mark.png" alt="" width={32} height={32} />
+                <img src="/brand/star-128.png" alt="" width={34} height={34} />
               </span>
               premium<span className="brand-light">tg</span>.
             </Link>

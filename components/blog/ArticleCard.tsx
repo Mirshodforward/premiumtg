@@ -2,7 +2,7 @@ import Link from "next/link";
 import { formatDate } from "@/lib/date";
 import type { Lang } from "@/lib/translations";
 import { type BlogSummary, getCategory, tx } from "@/lib/blog/types";
-import { ArrowUpRightIcon, BookIcon, CardIcon, StarIcon } from "../icons";
+import { ArrowUpRightIcon, BookIcon, CardIcon } from "../icons";
 export default function ArticleCard({
   post,
   lang,
@@ -14,7 +14,7 @@ export default function ArticleCard({
 }) {
   const news = post.category === "yangiliklar";
   const payment = post.category === "xarid";
-  const Icon = news ? StarIcon : payment ? CardIcon : BookIcon;
+  const Icon = payment ? CardIcon : BookIcon;
   const read =
     lang === "ru"
       ? "Читать статью"
@@ -37,7 +37,17 @@ export default function ArticleCard({
               ? "PREMIUM / PAYMENTS"
               : "PREMIUM / JOURNAL"}
         </span>
-        <Icon aria-hidden="true" />
+        {news ? (
+          <img
+            src="/brand/star-512.png"
+            alt=""
+            width={104}
+            height={104}
+            loading="lazy"
+          />
+        ) : (
+          <Icon aria-hidden="true" />
+        )}
         <i>PREMIUMTG · {String(index + 1).padStart(2, "0")}</i>
       </Link>
       <div className="article-meta">

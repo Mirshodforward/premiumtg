@@ -38,7 +38,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       }
       document
         .querySelector('meta[name="theme-color"]')
-        ?.setAttribute("content", next === "dark" ? "#0e0f20" : "#fcfcff");
+        ?.setAttribute("content", next === "dark" ? "#03061f" : "#f6f7ff");
       return next;
     });
   }, []);
