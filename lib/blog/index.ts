@@ -1,3 +1,4 @@
+import { POSTS_AUTO } from "./posts/auto-index";
 import { POSTS_LATEST } from "./posts/g-latest";
 import { POST_UPDATES } from "./posts/h-reviewed";
 import type { BlogSummary } from "./types";
@@ -23,6 +24,7 @@ export { CATEGORIES, getCategory, tx };
 
 /** Barcha maqolalar — sana bo'yicha yangidan eskiga */
 export const BLOG_POSTS: BlogPost[] = [
+  ...POSTS_AUTO,
   ...POSTS_LATEST,
   ...POSTS_ASOSLAR,
   ...POSTS_XARID,
