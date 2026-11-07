@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/site";
+import { SITE, botCtaUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Premiumtg haqida — tahririyat va manbalar",
   description:
@@ -52,7 +52,11 @@ export default function AboutPage() {
               @{SITE.supportUsername}
             </a>{" "}
             manziliga yuboring. Buyurtma uchun{" "}
-            <a href={SITE.botUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={botCtaUrl("about")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               @{SITE.botUsername}
             </a>{" "}
             botidan foydalaning.

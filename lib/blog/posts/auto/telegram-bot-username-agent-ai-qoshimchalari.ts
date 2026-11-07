@@ -107,7 +107,7 @@ Rasman tasdiqlangan bog‘liqlik boshqa yo‘nalishda. Bot API changelog’iga k
 
 > Tasdiqlanmagan funksiya uchun Premium olish shart emas. Obuna aynan nimalarni berishini [Premium imkoniyatlarining to‘liq ro‘yxatida](/blog/telegram-premium-imkoniyatlari) ko‘ring.
 
-Premium’ning tasdiqlangan imkoniyatlari sizga kerak bo‘lsa, uni [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) orqali username bilan, so‘mda olish mumkin. Joriy narx va to‘lov usullarini xariddan oldin botda tekshiring.
+Premium’ning tasdiqlangan imkoniyatlari sizga kerak bo‘lsa, uni [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) orqali username bilan, so‘mda olish mumkin. Joriy narx va to‘lov usullarini xariddan oldin botda tekshiring.
 
 ## Bunday mish-mishlarni o‘zingiz qanday tekshirasiz?
 
@@ -243,7 +243,7 @@ Bot API changelog’idagi yozuvga ko‘ra, akkauntni Business bot boshqarishi uc
 
 > Покупать Premium ради неподтверждённой функции не нужно. Что именно даёт подписка, смотрите в [полном списке возможностей Premium](/blog/telegram-premium-imkoniyatlari).
 
-Если вам нужны подтверждённые возможности Premium, оформить его можно через [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) — по username, с оплатой в сумах. Актуальную цену и способы оплаты проверьте в боте перед покупкой.
+Если вам нужны подтверждённые возможности Premium, оформить его можно через [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) — по username, с оплатой в сумах. Актуальную цену и способы оплаты проверьте в боте перед покупкой.
 
 ## Как самостоятельно проверить такой слух?
 

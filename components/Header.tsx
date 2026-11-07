@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "./LanguageContext";
 import { LANGS, type Lang } from "@/lib/translations";
-import { SITE } from "@/lib/site";
+import { SITE, botCtaUrl } from "@/lib/site";
 import { ArrowUpRightIcon } from "./icons";
 
 export default function Header() {
@@ -71,7 +71,7 @@ export default function Header() {
           </label>
           <a
             className="button button-dark header-buy"
-            href={SITE.botUrl}
+            href={botCtaUrl("header")}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -110,7 +110,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href={SITE.botUrl}
+            href={botCtaUrl("menu")}
             target="_blank"
             rel="noopener noreferrer"
             className="button button-dark"

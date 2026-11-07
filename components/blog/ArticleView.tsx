@@ -11,7 +11,7 @@ import {
 } from "@/lib/blog/types";
 import { renderMarkdown } from "@/lib/markdown";
 import { useLang } from "../LanguageContext";
-import { SITE } from "@/lib/site";
+import { SITE, botCtaUrl } from "@/lib/site";
 import ArticleCard from "./ArticleCard";
 import { ArrowUpRightIcon } from "../icons";
 export default function ArticleView({
@@ -177,7 +177,7 @@ export default function ArticleView({
               <div className="button-row">
                 <a
                   className="button button-dark"
-                  href={SITE.botUrl}
+                  href={botCtaUrl("blog")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

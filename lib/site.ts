@@ -16,6 +16,15 @@ export const SITE = {
   ogImage: "/opengraph-image",
 } as const;
 
+/**
+ * Bosiladigan «Botni ochish» havolasi — manba belgisi bilan (2026-11-07). Bot `site_premiumtg_<joy>` ni
+ * mijozning BIRINCHI manbasi sifatida yozadi → admin panelda Google/sayt orqali kelganlar ko‘rinadi.
+ * schema.org `sameAs` va llms.txt uchun toza `SITE.botUrl` qoladi (rasmiy profil havolasi belgisiz bo‘lsin).
+ */
+export function botCtaUrl(place: string): string {
+  return `${SITE.botUrl}?start=site_premiumtg_${place}`;
+}
+
 export type Plan = {
   id: string;
   duration: string;

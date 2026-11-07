@@ -116,7 +116,7 @@ O‘zingizni himoya qilish uchun:
 
 Shubhali havolani ochish nimaga olib kelishi mumkinligi haqida [Telegramda havola ochsam bloklanadimi](/blog/telegram-shubhali-havola-akkaunt-bloklanishi) maqolasida yozilgan.
 
-Premium xarid qilishda ham shu qoida amal qiladi. Premium statusni faqat Telegram beradi. [Premiumtg boti](https://t.me/premiumtg_uzbot) orqali olishda faqat username kerak, login kodi va parol so‘ralmaydi. Kimdir sizdan kod so‘rasa, bu akkauntingizga kirishga urinish.
+Premium xarid qilishda ham shu qoida amal qiladi. Premium statusni faqat Telegram beradi. [Premiumtg boti](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) orqali olishda faqat username kerak, login kodi va parol so‘ralmaydi. Kimdir sizdan kod so‘rasa, bu akkauntingizga kirishga urinish.
 
 ## Ko‘p so‘raladigan savollar
 
@@ -250,7 +250,7 @@ Avval ilovani yangilang va versiyani tekshiring. Rasmiy blogda e’lon bo‘lmas
 
 К чему может привести открытие подозрительной ссылки, рассказано в статье [заблокируют ли аккаунт, если открыть ссылку в Telegram](/blog/telegram-shubhali-havola-akkaunt-bloklanishi).
 
-То же правило действует при покупке Premium. Статус Premium выдаёт только Telegram. Для покупки через [бот Premiumtg](https://t.me/premiumtg_uzbot) нужен только username — код входа и пароль не запрашиваются. Если кто-то просит у вас код, это попытка получить доступ к вашему аккаунту.
+То же правило действует при покупке Premium. Статус Premium выдаёт только Telegram. Для покупки через [бот Premiumtg](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) нужен только username — код входа и пароль не запрашиваются. Если кто-то просит у вас код, это попытка получить доступ к вашему аккаунту.
 
 ## Часто задаваемые вопросы
 

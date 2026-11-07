@@ -62,7 +62,7 @@ export const POSTS_LATEST: BlogPost[] = [
     content: {
       uz: `## Premium xaridi qayerda boshlanadi?
 
-Premiumtg sayti tariflar va qo‘llanmalarni ko‘rsatadi. Buyurtma [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) orqali davom etadi. Saytning o‘zida karta rekvizitlarini kiritish yoki Telegram akkauntiga kirish formasi yo‘q. Botni ochgach, uning username’ini tekshiring: o‘xshash yozilgan boshqa botga adashmang.
+Premiumtg sayti tariflar va qo‘llanmalarni ko‘rsatadi. Buyurtma [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) orqali davom etadi. Saytning o‘zida karta rekvizitlarini kiritish yoki Telegram akkauntiga kirish formasi yo‘q. Botni ochgach, uning username’ini tekshiring: o‘xshash yozilgan boshqa botga adashmang.
 
 Muhim farq bor: Telegram Premium — obuna, Click, Payme, Paynet va Uzum Bank esa to‘lash uchun foydalaniladigan xizmat yoki bank. Ilovaning o‘zida «Premium» nomli tarif borligi Telegram obunasi ham kirishini anglatmaydi. Xarid hujjatida aynan Telegram Premium, uning muddati va qabul qiluvchi yozilgan bo‘lishi kerak.
 
@@ -158,7 +158,7 @@ Bunday xulosani faqat mahsulot nomiga qarab chiqarmang. Paket shartlarida Telegr
 Bu sotuvchi shartlari, buyurtma holati va to‘lov turiga bog‘liq. Xariddan oldin shartlarni o‘qing; muammo bo‘lsa buyurtma tafsilotlari bilan yordamga murojaat qiling. Avtomatik yoki darhol qaytarish bu maqolada va’da qilinmaydi.`,
       ru: `## Где начать покупку?
 
-Откройте [бот Premiumtg](https://t.me/premiumtg_uzbot), выберите срок подписки и username получателя. Сайт показывает тарифы и инструкции; заказ оформляется в боте. Для подарочной подписки не нужны пароль Telegram, код входа или QR-авторизация.
+Откройте [бот Premiumtg](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog), выберите срок подписки и username получателя. Сайт показывает тарифы и инструкции; заказ оформляется в боте. Для подарочной подписки не нужны пароль Telegram, код входа или QR-авторизация.
 
 ## Как выбрать способ оплаты?
 
@@ -233,7 +233,7 @@ Uzum Bank nomi yozilgan karta istalgan saytda ishlaydi deb bo‘lmaydi. Karta tu
 
 ## Xarid qilish ketma-ketligi
 
-1. [Premiumtg botini](https://t.me/premiumtg_uzbot) oching va username’ini tekshiring.
+1. [Premiumtg botini](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) oching va username’ini tekshiring.
 2. Premium muddati va qabul qiluvchining @username manzilini tanlang.
 3. Mavjud to‘lov usullarini ko‘ring. Uzum Bank yo‘li berilgan bo‘lsa, buyurtmadagi rekvizitlarga amal qiling.
 4. Qabul qiluvchi, summa va mumkin bo‘lgan komissiyani tekshiring.
@@ -259,7 +259,7 @@ Saytdagi 3, 6 va 12 oylik [tariflarni](/#narxlar) solishtiring. Bank komissiyasi
 
 ## Порядок покупки
 
-1. Откройте [Premiumtg](https://t.me/premiumtg_uzbot), выберите срок и username.
+1. Откройте [Premiumtg](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog), выберите срок и username.
 2. Используйте доступный в заказе способ. Если подходящего нет, уточните его у поддержки.
 3. Проверьте получателя, итоговую сумму и комиссию.
 4. Подтвердите платёж в проверенном окне банка и сохраните чек.

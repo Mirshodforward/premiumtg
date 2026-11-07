@@ -107,7 +107,7 @@ Yo‘q, Premium olish uchun Wallet ochish shart emas. Kripto orqali Premium olis
 | Akkaunt ma’lumoti | Faqat username | Hamyon va ulanish |
 | Kurs tebranishi | Yo‘q, narx so‘mda | Bo‘lishi mumkin |
 
-Premiumtg’da login kodi yoki parol so‘ralmaydi, username yetarli. Obuna 10 soniyada avtomatik faollashadi. Narxlar: 3 oy — ${narx(3)}, 6 oy — ${narx(6)}, 12 oy — ${narx(12)}. Narx va mavjud to‘lov usulini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) botida tekshiring.
+Premiumtg’da login kodi yoki parol so‘ralmaydi, username yetarli. Obuna 10 soniyada avtomatik faollashadi. Narxlar: 3 oy — ${narx(3)}, 6 oy — ${narx(6)}, 12 oy — ${narx(12)}. Narx va mavjud to‘lov usulini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) botida tekshiring.
 
 Stars ham Wallet bilan bir narsa emas: Stars — Telegram ichki valyutasi, Wallet — blokcheyn hamyoni.
 
@@ -244,7 +244,7 @@ Wallet — криптокошелёк в блокчейне TON. В [прави�
 | Данные аккаунта | Только username | Кошелёк и подключение |
 | Колебания курса | Нет, цена в сумах | Возможны |
 
-В Premiumtg не запрашивают код входа или пароль — достаточно username. Подписка активируется автоматически за 10 секунд. Цены: 3 месяца — ${narx(3)}, 6 месяцев — ${narx(6)}, 12 месяцев — ${narx(12)}. Перед покупкой проверьте цену и доступные способы оплаты в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot).
+В Premiumtg не запрашивают код входа или пароль — достаточно username. Подписка активируется автоматически за 10 секунд. Цены: 3 месяца — ${narx(3)}, 6 месяцев — ${narx(6)}, 12 месяцев — ${narx(12)}. Перед покупкой проверьте цену и доступные способы оплаты в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog).
 
 Stars — тоже не то же самое, что Wallet: Stars — внутренняя валюта Telegram, Wallet — блокчейн-кошелёк.
 

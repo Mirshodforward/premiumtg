@@ -140,7 +140,7 @@ Premiumtg narxlari: 3 oy — ${narx(3)}, 6 oy — ${narx(6)}, 12 oy — ${narx(1
 
 Buyurtmada akkauntga kirish, login kodi yoki parol so‘ralmaydi. Username’ingizni berish nega xavfsiz ekanini [bu maqolada](/blog/username-berish-xavfsizmi) tushuntirganmiz. O‘zbekistondagi barcha usullar bir joyda: [Telegram Premium sotib olish yo‘llari](/blog/telegram-premium-sotib-olish-uzbekiston).
 
-Premiumtg mustaqil xizmat, Premium statusni esa faqat Telegram beradi. Buyurtma boti: [@premiumtg_uzbot](https://t.me/premiumtg_uzbot). Savol bo‘lsa: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport).
+Premiumtg mustaqil xizmat, Premium statusni esa faqat Telegram beradi. Buyurtma boti: [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog). Savol bo‘lsa: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport).
 
 ## Ko‘p so‘raladigan savollar
 
@@ -289,7 +289,7 @@ Fragment указывает как препятствие отсутствие �
 
 Для заказа не нужны вход в аккаунт, код подтверждения или пароль. Почему сообщать свой username безопасно, мы объяснили [в этой статье](/blog/username-berish-xavfsizmi). Все способы для Узбекистана собраны здесь: [как купить Telegram Premium в Узбекистане](/blog/telegram-premium-sotib-olish-uzbekiston).
 
-Premiumtg — независимый сервис, а статус Premium выдаёт только Telegram. Бот для заказа: [@premiumtg_uzbot](https://t.me/premiumtg_uzbot). Если остались вопросы: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport).
+Premiumtg — независимый сервис, а статус Premium выдаёт только Telegram. Бот для заказа: [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog). Если остались вопросы: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport).
 
 ## Часто задаваемые вопросы
 

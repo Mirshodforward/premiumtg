@@ -125,7 +125,7 @@ Amaliy maslahatlar:
 - Telegram beqaror ishlayotgan paytda Premium sotib olishni kechiktiring. Bunday paytda obuna faollashganini tekshirish qiyinlashadi.
 - Premiumtg orqali xarid qilganda faqat username so‘raladi. Akkauntga kirish, login kodi yoki parol so‘ralmaydi.
 - Premium uchun kod so‘ragan har qanday «xizmat» firibgar bo‘lishi mumkin. Belgilar va himoya qoidalari: [firibgarlardan qanday himoyalanish kerak](/blog/telegram-premium-firibgarlikdan-himoya).
-- Buyurtma bo‘yicha savol bo‘lsa, faqat yordam manziliga yozing: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport). Narx va to‘lov usullarini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) botida tekshiring.
+- Buyurtma bo‘yicha savol bo‘lsa, faqat yordam manziliga yozing: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport). Narx va to‘lov usullarini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) botida tekshiring.
 
 ## Ko‘p so‘raladigan savollar
 
@@ -266,7 +266,7 @@ Ulanish uzilishi akkauntni o‘chiradi degan rasmiy ma’lumot topilmadi. Asosiy
 - Пока Telegram работает нестабильно, отложите покупку Premium. В такие моменты сложнее проверить, активировалась ли подписка.
 - При покупке через Premiumtg нужен только username. Вход в аккаунт, код входа или пароль не запрашиваются.
 - Любой «сервис», который просит код для Premium, может оказаться мошенническим. Признаки и правила защиты: [как защититься от мошенников](/blog/telegram-premium-firibgarlikdan-himoya).
-- С вопросами по заказу пишите только в поддержку: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport). Цены и способы оплаты перед покупкой проверяйте в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot).
+- С вопросами по заказу пишите только в поддержку: [@StarsPaymeeSupport](https://t.me/StarsPaymeeSupport). Цены и способы оплаты перед покупкой проверяйте в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog).
 
 ## Часто задаваемые вопросы
 

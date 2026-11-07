@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { SITE, PREMIUM_PLANS, formatSom } from "@/lib/site";
+import { SITE, PREMIUM_PLANS, formatSom, botCtaUrl } from "@/lib/site";
 import { HOME_FAQ } from "@/lib/home-content";
 import type { BlogSummary } from "@/lib/blog/types";
 import { useLang } from "./LanguageContext";
@@ -351,7 +351,7 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
             <div className="button-row">
               <a
                 className="button button-dark"
-                href={SITE.botUrl}
+                href={botCtaUrl("hero")}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -544,7 +544,7 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
               <span> · {formatSom(plan.price)}</span>
             </p>
             <a
-              href={SITE.botUrl}
+              href={botCtaUrl("mid")}
               target="_blank"
               rel="noopener noreferrer"
               className="button button-dark"
@@ -696,7 +696,7 @@ export default function Landing({ posts }: { posts: BlogSummary[] }) {
               <p>{c.ctaDesc}</p>
               <a
                 className="button button-glow"
-                href={SITE.botUrl}
+                href={botCtaUrl("cta")}
                 target="_blank"
                 rel="noopener noreferrer"
               >

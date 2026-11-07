@@ -113,7 +113,7 @@ Chiroyli eskiz tez tarqaladi, uning ortidan esa «xizmat» taklif qiluvchilar ch
 - Telegram funksiyalarini faqat Telegram’ning o‘zi ochadi. Premium statusni ham faqat Telegram beradi, «soxta Premium» degan narsa texnik jihatdan yo‘q.
 - Kanal postlaridagi begona bot havolalarini ochishdan oldin ular kimga tegishli ekanini o‘ylab ko‘ring.
 
-Xuddi shu mantiq Premium xaridiga ham tegishli. Masalan, [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) orqali buyurtmada faqat username so‘raladi: akkauntga kirish, login kodi yoki parol talab qilinmaydi. Username nega xavfsiz ekani haqida: [Username berish xavflimi](/blog/username-berish-xavfsizmi).
+Xuddi shu mantiq Premium xaridiga ham tegishli. Masalan, [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) orqali buyurtmada faqat username so‘raladi: akkauntga kirish, login kodi yoki parol talab qilinmaydi. Username nega xavfsiz ekani haqida: [Username berish xavflimi](/blog/username-berish-xavfsizmi).
 
 ## Funksiya chiqsa, qayerdan bilasiz va hozir nima qilsa bo‘ladi?
 
@@ -251,7 +251,7 @@ Telegram добавил десятки динамических обоев дл�
 - Функции Telegram открывает только сам Telegram. Статус Premium тоже выдаёт только Telegram, «поддельного Premium» технически не существует.
 - Прежде чем открывать сторонние ссылки на ботов из постов в каналах, подумайте, кому они принадлежат.
 
-Та же логика работает и при покупке Premium. Например, при заказе через [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) запрашивается только username: вход в аккаунт, код входа или пароль не нужны. Почему username безопасен: [опасно ли давать username](/blog/username-berish-xavfsizmi).
+Та же логика работает и при покупке Premium. Например, при заказе через [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) запрашивается только username: вход в аккаунт, код входа или пароль не нужны. Почему username безопасен: [опасно ли давать username](/blog/username-berish-xavfsizmi).
 
 ## Как узнать о выходе функции и что можно сделать уже сейчас?
 

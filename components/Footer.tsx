@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useLang } from "./LanguageContext";
-import { SITE } from "@/lib/site";
+import { SITE, botCtaUrl } from "@/lib/site";
 import { ArrowUpRightIcon } from "./icons";
 export default function Footer() {
   const { lang, tr } = useLang();
@@ -51,7 +51,11 @@ export default function Footer() {
           </div>
           <div>
             <h2>{words[2]}</h2>
-            <a href={SITE.botUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={botCtaUrl("footer")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Telegram bot <ArrowUpRightIcon />
             </a>
             <a href={SITE.supportUrl} target="_blank" rel="noopener noreferrer">

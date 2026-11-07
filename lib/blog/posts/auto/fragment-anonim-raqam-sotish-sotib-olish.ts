@@ -124,7 +124,7 @@ Premium uchun kripto hamyon ochish shart emas. Premiumtg orqali username bilan, 
 - 6 oy — ${narx(6)}
 - 12 oy — ${narx(12)}
 
-Login kodi yoki parol so‘ralmaydi, obuna 10 soniyada avtomatik faollashadi. Narx va mavjud to‘lov usullarini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot) botida tekshirib oling. Boshqa yo‘llar bilan taqqoslash uchun [O‘zbekistonda Premium sotib olish usullari](/blog/telegram-premium-sotib-olish-uzbekiston) maqolasini o‘qing.
+Login kodi yoki parol so‘ralmaydi, obuna 10 soniyada avtomatik faollashadi. Narx va mavjud to‘lov usullarini xariddan oldin [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) botida tekshirib oling. Boshqa yo‘llar bilan taqqoslash uchun [O‘zbekistonda Premium sotib olish usullari](/blog/telegram-premium-sotib-olish-uzbekiston) maqolasini o‘qing.
 
 Premiumtg — mustaqil xizmat.
 
@@ -260,7 +260,7 @@ Username — открытая информация: зная его, войти 
 - 6 месяцев — ${narx(6)}
 - 12 месяцев — ${narx(12)}
 
-Код входа и пароль не запрашиваются, подписка активируется автоматически за 10 секунд. Цену и доступные способы оплаты перед покупкой уточните в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot). Сравнить с другими вариантами поможет статья [о способах купить Premium в Узбекистане](/blog/telegram-premium-sotib-olish-uzbekiston).
+Код входа и пароль не запрашиваются, подписка активируется автоматически за 10 секунд. Цену и доступные способы оплаты перед покупкой уточните в боте [@premiumtg_uzbot](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog). Сравнить с другими вариантами поможет статья [о способах купить Premium в Узбекистане](/blog/telegram-premium-sotib-olish-uzbekiston).
 
 Premiumtg — независимый сервис и не заявляет об официальном партнёрстве с Telegram.
 

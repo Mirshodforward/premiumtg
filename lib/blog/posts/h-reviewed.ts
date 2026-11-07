@@ -49,7 +49,7 @@ for (const m of methods) {
     content: {
       uz: `## ${m.name} orqali to‘lov qayerda qilinadi?
 
-[Premiumtg botida](https://t.me/premiumtg_uzbot) buyurtma yarating. Sayt tarif va yo‘riqnomalarni beradi; unda karta yoki Telegram login formasi yo‘q. Botning joriy menyusi bu landing kodidan tekshirilmaydi, shuning uchun kerakli to‘lov usuli ko‘rsatilganiga ishonch hosil qiling.
+[Premiumtg botida](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) buyurtma yarating. Sayt tarif va yo‘riqnomalarni beradi; unda karta yoki Telegram login formasi yo‘q. Botning joriy menyusi bu landing kodidan tekshirilmaydi, shuning uchun kerakli to‘lov usuli ko‘rsatilganiga ishonch hosil qiling.
 
 ## Qadamlar
 
@@ -73,7 +73,7 @@ Boshqa hisobga mustaqil o‘tkazma qilmang. [Yordam xizmatidan](https://t.me/Sta
 [Click, Payme, Paynet va Uzum Bank taqqoslanishi](/blog/telegram-premium-ozbekistonda-tolov-usullari) hamda [to‘lov xatolari bo‘yicha qo‘llanma](/blog/telegram-premium-tolov-xatolari) qo‘shimcha savollarga yordam beradi.`,
       ru: `## Оплата через ${m.name}
 
-Создайте заказ в [боте Premiumtg](https://t.me/premiumtg_uzbot), выберите срок и username получателя. На сайте нет формы оплаты или входа в Telegram. Доступность способа проверяйте в текущем заказе.
+Создайте заказ в [боте Premiumtg](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog), выберите срок и username получателя. На сайте нет формы оплаты или входа в Telegram. Доступность способа проверяйте в текущем заказе.
 
 ## Порядок действий
 
@@ -110,7 +110,7 @@ POST_UPDATES["username-orqali-premium-ulash"] = {
     uz: `## Username orqali Premium olish tartibi
 
 1. Telegram sozlamalaridan username’ni nusxalang. U profil nomidan farq qiladi.
-2. [Premiumtg botini](https://t.me/premiumtg_uzbot) ochib kerakli muddatni tanlang.
+2. [Premiumtg botini](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog) ochib kerakli muddatni tanlang.
 3. Obuna oladigan username va paketni qayta tekshiring.
 4. Botdagi mavjud to‘lov usulidan foydalaning.
 5. Chekni saqlang va ko‘rsatilgan yetkazish muddati ichida buyurtma holatini kuzating.
@@ -126,7 +126,7 @@ Saytda ko‘rsatilgan narxlarni botdagi joriy narx bilan solishtiring. Username 
 [Mahalliy to‘lov yo‘llari](/blog/telegram-premium-ozbekistonda-tolov-usullari).`,
     ru: `## Подключение по username
 
-Скопируйте username в настройках Telegram, откройте [бот](https://t.me/premiumtg_uzbot), выберите срок и проверьте получателя. Оплатите доступным способом, сохраните чек и проверьте заказ.
+Скопируйте username в настройках Telegram, откройте [бот](https://t.me/premiumtg_uzbot?start=site_premiumtg_blog), выберите срок и проверьте получателя. Оплатите доступным способом, сохраните чек и проверьте заказ.
 
 Для подарочной подписки не передавайте пароль, код входа или QR-авторизацию. Итоговую цену и срок доставки смотрите в заказе. [Способы оплаты](/blog/telegram-premium-ozbekistonda-tolov-usullari).`,
   },
