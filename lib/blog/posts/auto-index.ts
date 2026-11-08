@@ -16,9 +16,10 @@ import { post as p11 } from "./auto/telegram-nft-sovga-imzosini-ochirish";
 import { post as p12 } from "./auto/telegram-nft-sovga-sotish-marketpleys";
 import { post as p13 } from "./auto/telegram-nft-sovga-ton-hamyonga-otkazish";
 import { post as p14 } from "./auto/telegram-shubhali-havola-akkaunt-bloklanishi";
-import { post as p15 } from "./auto/telegram-stars-refund-firibgarlik-rostmi";
-import { post as p16 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
-import { post as p17 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
+import { post as p15 } from "./auto/telegram-sovga-qabul-qilishni-ochirish-sozlama";
+import { post as p16 } from "./auto/telegram-stars-refund-firibgarlik-rostmi";
+import { post as p17 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
+import { post as p18 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
 
 /** Avtoblogyoz qo'shgan maqolalar — lib/blog/posts/auto/ dagi har bir fayl. */
-export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17];
+export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18];
