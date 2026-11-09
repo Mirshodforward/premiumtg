@@ -23,6 +23,7 @@ import { post as p18 } from "./auto/telegram-sovga-qabul-qilishni-ochirish-sozla
 import { post as p19 } from "./auto/telegram-stars-refund-firibgarlik-rostmi";
 import { post as p20 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
 import { post as p21 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
+import { post as p22 } from "./auto/telegram-wallet-walt-nomi-ozgardimi";
 
 /** Avtoblogyoz qo'shgan maqolalar — lib/blog/posts/auto/ dagi har bir fayl. */
-export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21];
+export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22];
