@@ -21,15 +21,16 @@ import { post as p16 } from "./auto/telegram-nft-sovga-egasi-yashirin";
 import { post as p17 } from "./auto/telegram-nft-sovga-imzosini-ochirish";
 import { post as p18 } from "./auto/telegram-nft-sovga-sotish-marketpleys";
 import { post as p19 } from "./auto/telegram-nft-sovga-ton-hamyonga-otkazish";
-import { post as p20 } from "./auto/telegram-reyting-stars-qayta-hisoblandi";
-import { post as p21 } from "./auto/telegram-shubhali-havola-akkaunt-bloklanishi";
-import { post as p22 } from "./auto/telegram-sovga-qabul-qilishni-ochirish-sozlama";
-import { post as p23 } from "./auto/telegram-stars-refund-firibgarlik-rostmi";
-import { post as p24 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
-import { post as p25 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
-import { post as p26 } from "./auto/telegram-wallet-ulanishlar-sinxronlash-xavfsizlik";
-import { post as p27 } from "./auto/telegram-wallet-walt-nomi-ozgardimi";
-import { post as p28 } from "./auto/tg-domen-nft-gdomains-rasmiymi";
+import { post as p20 } from "./auto/telegram-premium-stars-bag-arzon-xarid-rostmi";
+import { post as p21 } from "./auto/telegram-reyting-stars-qayta-hisoblandi";
+import { post as p22 } from "./auto/telegram-shubhali-havola-akkaunt-bloklanishi";
+import { post as p23 } from "./auto/telegram-sovga-qabul-qilishni-ochirish-sozlama";
+import { post as p24 } from "./auto/telegram-stars-refund-firibgarlik-rostmi";
+import { post as p25 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
+import { post as p26 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
+import { post as p27 } from "./auto/telegram-wallet-ulanishlar-sinxronlash-xavfsizlik";
+import { post as p28 } from "./auto/telegram-wallet-walt-nomi-ozgardimi";
+import { post as p29 } from "./auto/tg-domen-nft-gdomains-rasmiymi";
 
 /** Avtoblogyoz qo'shgan maqolalar — lib/blog/posts/auto/ dagi har bir fayl. */
-export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28];
+export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29];
