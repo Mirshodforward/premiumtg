@@ -29,7 +29,7 @@ Demak, xavf NFT kelgan paytda emas, siz u bilan biror ish qilgan paytda boshlana
 
 ## «Spam NFT hamyonni bo‘shatadi» degan xabar qayerdan chiqdi?
 
-Mavzu @villageton Telegram kanalidagi postdan olindi. Bu kanal rasmiy manba emas.
+Bu mavzu Telegram kanallaridan biridagi postda ko‘tarilgan. Bu kanal rasmiy manba emas.
 
 Postda aytilishicha:
 
@@ -141,7 +141,7 @@ Eksplorerda yuboruvchi manzil ko‘rinadi, lekin uning ortidagi shaxsni aniqlash
 
 ## Откуда взялся слух «спам-NFT опустошает кошелёк»?
 
-Тема взята из поста в Telegram-канале @villageton. Этот канал не является официальным источником.
+Тема взята из поста в одном из Telegram-каналов. Этот канал не является официальным источником.
 
 В посте говорится:
 
