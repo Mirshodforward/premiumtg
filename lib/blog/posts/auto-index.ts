@@ -32,10 +32,11 @@ import { post as p27 } from "./auto/telegram-stiker-zaiflik-rlottie-xavfsizlik";
 import { post as p28 } from "./auto/telegram-wallet-hamyon-ochish-faollashtirish";
 import { post as p29 } from "./auto/telegram-wallet-ulanishlar-sinxronlash-xavfsizlik";
 import { post as p30 } from "./auto/telegram-wallet-walt-nomi-ozgardimi";
-import { post as p31 } from "./auto/tg-domen-nft-gdomains-rasmiymi";
-import { post as p32 } from "./auto/ton-hamyonga-spam-nft-keldi-xavflimi";
-import { post as p33 } from "./auto/ton-org-telegram-integratsiya-mahsulotlar";
-import { post as p34 } from "./auto/toncoin-gram-nomi-ozgardimi-rostmi";
+import { post as p31 } from "./auto/telegram-yashirin-sovgalar-stargift-invalid-xatosi";
+import { post as p32 } from "./auto/tg-domen-nft-gdomains-rasmiymi";
+import { post as p33 } from "./auto/ton-hamyonga-spam-nft-keldi-xavflimi";
+import { post as p34 } from "./auto/ton-org-telegram-integratsiya-mahsulotlar";
+import { post as p35 } from "./auto/toncoin-gram-nomi-ozgardimi-rostmi";
 
 /** Avtoblogyoz qo'shgan maqolalar — lib/blog/posts/auto/ dagi har bir fayl. */
-export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34];
+export const POSTS_AUTO: BlogPost[] = [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35];
