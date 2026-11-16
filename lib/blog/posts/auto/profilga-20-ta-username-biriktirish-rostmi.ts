@@ -21,7 +21,7 @@ export const post: BlogPost = {
   content: {
     uz: `## Profil yoki kanalga 20 ta username biriktirish mumkinmi?
 
-Limit 10 tadan 20 taga oshgani rasman tasdiqlanmagan. Bu haqda faqat @villageton kanali yozgan. Telegram ham, Fragment ham bunday e’lon bermagan.
+Limit 10 tadan 20 taga oshgani rasman tasdiqlanmagan. Bu haqda faqat bitta Telegram kanali yozgan. Telegram ham, Fragment ham bunday e’lon bermagan.
 
 Rasmiy hujjatlarda boshqa narsa yozilgan. Telegram API hujjatiga ko‘ra, Fragment’dan olingan bir nechta collectible username’ni o‘zingizga tegishli akkaunt, superguruh va kanalga biriktirish mumkin ([Fragment collectibles](https://core.telegram.org/api/fragment)).
 
@@ -154,7 +154,7 @@ Sabab ochiq kanal va superguruhlar yaratish limiti bo‘lishi mumkin. Telegram A
 Bo‘ladi, lekin buning uchun username bir martalik to‘lov bilan upgrade qilinadi va bu amalni orqaga qaytarib bo‘lmaydi. To‘lov miqdorini Fragment’da ko‘ring.`,
     ru: `## Можно ли привязать 20 username к профилю или каналу?
 
-Рост лимита с 10 до 20 официально не подтверждён. Об этом писал только канал @villageton. Ни Telegram, ни Fragment такого не объявляли.
+Рост лимита с 10 до 20 официально не подтверждён. Об этом писал только один Telegram-канал. Ни Telegram, ни Fragment такого не объявляли.
 
 В официальной документации написано другое. Согласно документации Telegram API, к своему аккаунту, супергруппе или каналу можно привязать несколько коллекционных username, купленных на Fragment ([Fragment collectibles](https://core.telegram.org/api/fragment)).
 

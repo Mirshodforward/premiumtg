@@ -82,7 +82,7 @@ Chiqarishning TON’dagi aniq narxi va kutish muddati rasmiy manbalarda topilmad
 
 ## «Fragment’siz to‘g‘ridan-to‘g‘ri hamyonga» funksiyasi haqiqatmi?
 
-Bu gap beta versiyalarni kuzatuvchi Telegram kanallaridan (TBetaLeak, @villageton) tarqalgan. Ularning yozishicha, ilovaning beta versiyasida sovg‘ani Fragment’ni chetlab o‘tib, to‘g‘ridan-to‘g‘ri hamyonga chiqarish imkoniyati ko‘ringan.
+Bu gap beta versiyalarni kuzatuvchi Telegram kanallaridan tarqalgan. Ularning yozishicha, ilovaning beta versiyasida sovg‘ani Fragment’ni chetlab o‘tib, to‘g‘ridan-to‘g‘ri hamyonga chiqarish imkoniyati ko‘ringan.
 
 Telegram buni rasman e’lon qilmagan. Texnik hujjatlarda ham hozircha bunday yo‘l yo‘q.
 
@@ -204,7 +204,7 @@ Ayrim sovg‘alarni TON’ga chiqarish belgilangan vaqtgacha yopiq turadi. O‘s
 
 ## Функция «напрямую на кошелёк без Fragment» — правда?
 
-Эта информация разошлась из Telegram-каналов, которые следят за бета-версиями (TBetaLeak, @villageton). По их словам, в бета-версии приложения появилась возможность выводить подарок прямо на кошелёк, минуя Fragment.
+Эта информация разошлась из Telegram-каналов, которые следят за бета-версиями. По их словам, в бета-версии приложения появилась возможность выводить подарок прямо на кошелёк, минуя Fragment.
 
 Официально Telegram об этом не объявлял. В технической документации такого способа пока тоже нет.
 
