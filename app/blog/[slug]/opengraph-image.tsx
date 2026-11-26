@@ -2,7 +2,16 @@ import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
 import { join } from "node:path";
 import { readFile } from "node:fs/promises";
-import { getBlogPost, getCategory } from "@/lib/blog";
+import { getAllSlugs, getBlogPost, getCategory } from "@/lib/blog";
+
+// Statik eksport: fayl build vaqtida yaratiladi
+export const dynamic = "force-static";
+
+// Har maqolaning OG rasmi build vaqtida yaratiladi
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
+
 export const alt = "Premiumtg — Telegram Premium qo‘llanmasi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

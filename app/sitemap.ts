@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 import { SITE, SITE_UPDATED } from "@/lib/site";
 import { BLOG_POSTS, getLastModified } from "@/lib/blog";
+
+// Statik eksport: fayl build vaqtida yaratiladi
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastPost = new Date(
     Math.max(...BLOG_POSTS.map((p) => getLastModified(p).getTime())),

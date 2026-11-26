@@ -1,6 +1,10 @@
 import { ImageResponse } from "next/og";
 import { join } from "node:path";
 import { readFile } from "node:fs/promises";
+
+// Statik eksport: fayl build vaqtida yaratiladi
+export const dynamic = "force-static";
+
 export const alt = "Premiumtg — Telegram Premium sotib olish";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

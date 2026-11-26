@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
+// Statik eksport: fayl build vaqtida yaratiladi
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
