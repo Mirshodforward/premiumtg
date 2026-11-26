@@ -13,6 +13,12 @@ npm test
 
 Node.js 20.9+ kerak. Brauzer testlari production build’dan keyin ishlaydi, 3100-portda serverni avtomatik ochadi. `playwright.config.ts` o‘rnatilgan Google Chrome’dan foydalanadi; boshqa muhitda `npx playwright install chrome` qiling yoki `channel` sozlamasini o‘zgartiring.
 
+## Deploy
+
+Sayt to‘liq statik: `npm run build` natijasi — `out/` papkasi (`next.config.js` da `output: "export"`). Sayt o‘z serverimizda turadi, `out/` ni nginx to‘g‘ridan-to‘g‘ri diskdan beradi (2026-11-26 gacha Vercel’da edi). `main` ga push qilingach server 2 daqiqa ichida o‘zi quradi va yangi versiyani yoqadi; build yoki tekshiruv o‘tmasa saytda oldingi versiya qoladi va Telegram’ga xabar keladi.
+
+`npm run start` — `out/` ni lokal ko‘rsatadi (`scripts/serve-out.mjs`): qoidalar saytdagi nginx bilan bir xil — toza manzillar, oxirgi slash va `.html` uchun 308, topilmagan sahifaga 404. Qo‘lda qayta chiqarish: `ssh root@<server> site-build premiumtg --force`. Server sozlamasi (nginx, HTTPS, build skriptlari) — avtoblogyoz loyihasida, `scripts/sites/`.
+
 ## Asosiy fayllar
 
 - `components/Landing.tsx` — yangi landing va 3 tildagi interfeys.

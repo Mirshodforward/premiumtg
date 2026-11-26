@@ -8,7 +8,7 @@
     "prebuild": "node scripts/gen-auto-posts-index.mjs",
     "build": "next build",
     "blog:index": "node scripts/gen-auto-posts-index.mjs",
-    "start": "next start",
+    "start": "node scripts/serve-out.mjs",
     "typecheck": "tsc --noEmit",
     "test": "playwright test",
     "format:check": "prettier --check app components lib tests playwright.config.ts postcss.config.js",
